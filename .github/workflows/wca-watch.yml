@@ -2,7 +2,7 @@ name: WCA 新比赛邮件通知
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/30 * * * *"  # 每 30 分钟检查一次
   workflow_dispatch:
     inputs:
       test_email:
@@ -35,6 +35,7 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           MAIL_FROM_NAME: WCA Watch
+          WCA_COUNTRY_CODES: ""  # 留空=全球；填 CN=只看中国；多个用逗号分隔如 CN,HK,TW
           WCA_STATE_FILE: ${{ github.workspace }}/.github/wca_state.json
         run: |
           if [[ "${{ inputs.test_email }}" == "true" ]]; then
