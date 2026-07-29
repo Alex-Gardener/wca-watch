@@ -35,7 +35,7 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           MAIL_FROM_NAME: WCA Watch
-          WCA_COUNTRY_CODES: ""  # 留空=全球；填 CN=只看中国；多个用逗号分隔如 CN,HK,TW
+          WCA_COUNTRY_CODES: "CN,HK,MO"  # 仅推送中国大陆、香港和澳门
           WCA_STATE_FILE: ${{ github.workspace }}/.github/wca_state.json
         run: |
           if [[ "${{ inputs.test_email }}" == "true" ]]; then

@@ -49,7 +49,7 @@
 
 ```yaml
 env:
-  WCA_COUNTRY_CODES: CN  # 只看中国比赛；留空表示全球
+  WCA_COUNTRY_CODES: CN,HK,MO  # 仅推送中国大陆、香港和澳门
   SMTP_HOST: smtp.mail.me.com  # iCloud SMTP
   SMTP_PORT: “587”
   SMTP_USE_SSL: “false”
