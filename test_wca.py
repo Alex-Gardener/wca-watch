@@ -24,6 +24,15 @@ class IncrementalFetchTests(unittest.TestCase):
         self.assertEqual(request.call_args.args[0]["sort"], "-announced_at")
         self.assertEqual(request.call_args.args[0]["page"], 3)
 
+    def test_fetches_latest_competition_for_country(self):
+        expected = competition("china-latest", "2026-07-29T13:00:00Z", "CN")
+        with patch.object(wca, "request_json", return_value=[expected]) as request:
+            actual = wca.fetch_latest_country_competition("cn")
+        self.assertEqual(actual, expected)
+        self.assertEqual(request.call_args.args[0]["country_iso2"], "CN")
+        self.assertEqual(request.call_args.args[0]["sort"], "-announced_at")
+        self.assertEqual(request.call_args.args[0]["per_page"], 1)
+
     def test_fetches_only_items_after_cursor(self):
         page = [
             competition("new-2", "2026-07-29T14:00:00.000Z"),
@@ -106,6 +115,13 @@ class PresentationAndFilterTests(unittest.TestCase):
             [part.get_content_type() for part in message.get_payload()],
             ["text/plain", "text/html"],
         )
+
+    def test_sample_email_is_clearly_marked(self):
+        item = competition("sample", "2026-07-29T13:00:00Z", name="演示比赛")
+        subject, body = wca.build_email([item], is_sample=True)
+        self.assertIn("样例", subject)
+        self.assertIn("演示邮件", body)
+        self.assertIn("比赛信息来自 WCA 最新公开数据", body)
 
 
 if __name__ == "__main__":
