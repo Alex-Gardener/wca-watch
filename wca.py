@@ -138,6 +138,23 @@ def fetch_page(page: int) -> list[dict[str, Any]]:
     )
 
 
+def fetch_latest_country_competition(country_code: str) -> dict[str, Any]:
+    """获取指定国家/地区按公告时间排序的最新一场比赛。"""
+    code = country_code.strip().upper()
+    items = request_json(
+        {
+            "announced": "true",
+            "country_iso2": code,
+            "sort": "-announced_at",
+            "per_page": 1,
+            "page": 1,
+        }
+    )
+    if not items:
+        raise RuntimeError(f"WCA API 中没有找到国家/地区代码为 {code} 的比赛")
+    return items[0]
+
+
 def fetch_since(cursor_text: str, seen_ids: set[str]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """取回游标之后的所有公告；第二项包含为更新状态而读到的项目。"""
     cursor = parse_time(cursor_text)
@@ -425,7 +442,7 @@ def build_email(items: list[dict[str, Any]], is_sample: bool = False) -> tuple[s
     )
     hero_title = "比赛通知样例" if is_sample else "新比赛已公布"
     hero_intro = (
-        "这是邮件样式预览，下面展示一场完整的比赛通知。"
+        "这是邮件样式预览，下面使用 WCA 最新公开数据展示完整通知。"
         if is_sample
         else f"本次共整理 <strong>{len(items)}</strong> 场比赛，关键时间和地点一目了然。"
     )
@@ -437,7 +454,7 @@ def build_email(items: list[dict[str, Any]], is_sample: bool = False) -> tuple[s
     sample_notice = (
         """
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px">
-          <tr><td style="padding:12px 14px;color:#047857;font-size:13px;font-weight:700;line-height:1.6">✓ 这是一封演示邮件，不代表该比赛真实存在，也不会产生报名记录。</td></tr>
+          <tr><td style="padding:12px 14px;color:#047857;font-size:13px;font-weight:700;line-height:1.6">✓ 这是一封演示邮件，比赛信息来自 WCA 最新公开数据；请以官方页面的实时信息为准。</td></tr>
         </table>
         """
         if is_sample
@@ -612,28 +629,11 @@ def check(dry_run: bool = False) -> None:
 
 
 def send_test_email() -> None:
-    sample = {
-        "id": "WCAWatchSample2026",
-        "name": "WCA Watch 魔方公开赛 2026（演示）",
-        "country_iso2": "CN",
-        "city": "上海市",
-        "venue": "示例城市体育中心",
-        "venue_address": "上海市示例区魔方路 100 号",
-        "venue_details": "二楼综合比赛馆，请从东门进入",
-        "start_date": "2026-09-19",
-        "end_date": "2026-09-20",
-        "announced_at": "2026-07-29T08:00:00Z",
-        "registration_open": "2026-08-01T12:00:00Z",
-        "registration_close": "2026-09-10T12:00:00Z",
-        "competitor_limit": 180,
-        "event_ids": ["333", "222", "444", "333oh", "pyram", "skewb"],
-        "organizers": [{"name": "WCA Watch 赛事团队"}],
-        "delegates": [{"name": "示例 WCA 代表"}],
-        "url": "https://www.worldcubeassociation.org/competitions",
-        "website": "https://www.worldcubeassociation.org",
-    }
+    sample = fetch_latest_country_competition("CN")
+    sample_name = normalized_item(sample)["name"]
     subject, body = build_email([sample], is_sample=True)
-    plain_body = "【演示邮件，不代表比赛真实存在】\n\n" + build_plain_email([sample])
+    subject = f"WCA Watch 演示｜中国最新比赛：{sample_name}"
+    plain_body = "【基于 WCA 最新公开数据生成的演示邮件】\n\n" + build_plain_email([sample])
     send_email(subject, body, plain_body)
     print("[OK] 比赛通知样例邮件已发送。")
 
