@@ -2,6 +2,8 @@
 
 这个小程序使用 WCA 官方 API 检查最新公告，并通过邮件通知。首次运行只建立当前基线，不会把已有比赛全部发一遍；以后每次只发送新增比赛。邮件发送失败时不会推进游标，因此下次会自动重试。
 
+**当前已部署到 GitHub Actions 云端运行**，每 30 分钟自动检查一次，Mac 休眠时也能持续监控。
+
 ## 邮件配置
 
 当前机器使用 macOS 登录钥匙串保存 iCloud SMTP 密码，源码和 `.env` 中都没有明文密码。正常运行不需要打开“邮件”App。
@@ -32,16 +34,35 @@ Apple 应用专用密码可在 [account.apple.com](https://account.apple.com/) �
 
 脚本只使用 Python 标准库；若 `.venv` 不存在，也可以使用 `python3`。
 
-## 3. 安装自动检查（macOS）
+## 3. 云端自动检查（GitHub Actions）
+
+项目已部署到 GitHub Actions，每 30 分钟自动检查一次新比赛，**Mac 关机或休眠时也能持续运行**。
+
+### 手动触发检查
+
+```bash
+# 发送测试邮件
+gh workflow run wca-watch.yml -f test_email=true
+
+# 执行增量检查
+gh workflow run wca-watch.yml
+```
+
+### 查看运行日志
+
+```bash
+gh run list --workflow=wca-watch.yml
+gh run view <run-id> --log
+```
+
+### 本地 macOS 安装（可选）
+
+如果需要本地运行：
 
 ```bash
 chmod +x run.sh install_launchd.py
 python3 install_launchd.py
 ```
-
-安装程序会先发送测试邮件、执行一次增量检查，再创建当前用户的 `launchd` 任务。任务每 30 分钟运行一次，登录后自动启动，无需一直开着终端；Mac 需要处于开机且联网状态。
-
-后台运行副本和日志位于 `~/Library/Application Support/WCA Watch`。项目放在外置卷上也不影响 `launchd` 运行。
 
 卸载：
 
