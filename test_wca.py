@@ -1,5 +1,6 @@
 import os
 import unittest
+from email import message_from_string
 from unittest.mock import patch
 
 import wca
@@ -58,6 +59,53 @@ class PresentationAndFilterTests(unittest.TestCase):
         _, body = wca.build_email([item])
         self.assertNotIn("<script>", body)
         self.assertIn("&lt;script&gt;", body)
+
+    def test_email_highlights_clear_dates_and_registration_timezone(self):
+        item = competition("beijing", "2026-07-29T13:00:00Z", name="北京魔方公开赛")
+        item.update(
+            {
+                "city": "北京",
+                "venue": "示例体育馆",
+                "registration_open": "2026-07-29T12:00:00Z",
+                "registration_close": "2026-07-30T12:00:00Z",
+                "competitor_limit": 120,
+                "event_ids": ["333", "222"],
+            }
+        )
+        with patch.dict(os.environ, {"MAIL_TIMEZONE": "Asia/Shanghai"}, clear=False):
+            subject, body = wca.build_email([item])
+            plain = wca.build_plain_email([item])
+
+        self.assertEqual(subject, "WCA 新赛通知｜1 场比赛已公布")
+        self.assertIn("2026年8月1日（周六）— 8月2日（周日）", body)
+        self.assertIn("2026年07月29日 20:00（北京时间）", body)
+        self.assertIn("参赛名额", body)
+        self.assertIn("三阶", body)
+        self.assertIn("比赛地点：北京 · 示例体育馆", plain)
+
+    def test_send_email_contains_plain_and_html_versions(self):
+        smtp_config = {
+            "host": "smtp.example.com",
+            "port": 465,
+            "user": "sender@example.com",
+            "password": "secret",
+            "recipients": ["reader@example.com"],
+            "from_name": "WCA Watch",
+            "use_ssl": True,
+        }
+        with (
+            patch.object(wca, "smtp_config", return_value=smtp_config),
+            patch.object(wca.smtplib, "SMTP_SSL") as smtp,
+        ):
+            wca.send_email("主题", "<p>HTML 内容</p>", "纯文本内容")
+
+        raw_message = smtp.return_value.__enter__.return_value.sendmail.call_args.args[2]
+        message = message_from_string(raw_message)
+        self.assertTrue(message.is_multipart())
+        self.assertEqual(
+            [part.get_content_type() for part in message.get_payload()],
+            ["text/plain", "text/html"],
+        )
 
 
 if __name__ == "__main__":

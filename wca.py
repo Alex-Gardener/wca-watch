@@ -17,7 +17,8 @@ import subprocess
 import sys
 import tempfile
 import time
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formataddr
 from http.client import HTTPException
@@ -26,6 +27,7 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -225,106 +227,245 @@ def filter_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [item for item in items if str(item.get("country_iso2") or "").upper() in country_codes]
 
 
+WEEKDAYS = "一二三四五六日"
+
+
+def format_competition_date(start_text: str, end_text: str) -> str:
+    """把 API 日期格式化成适合中文邮件快速浏览的形式。"""
+    try:
+        start = date.fromisoformat(start_text)
+        end = date.fromisoformat(end_text or start_text)
+    except ValueError:
+        return start_text if start_text == end_text else f"{start_text} 至 {end_text}"
+
+    def full(value: date) -> str:
+        return f"{value.year}年{value.month}月{value.day}日（周{WEEKDAYS[value.weekday()]}）"
+
+    if start == end:
+        return full(start)
+    if start.year == end.year:
+        return (
+            f"{start.year}年{start.month}月{start.day}日（周{WEEKDAYS[start.weekday()]}）"
+            f"— {end.month}月{end.day}日（周{WEEKDAYS[end.weekday()]}）"
+        )
+    return f"{full(start)}— {full(end)}"
+
+
+def mail_timezone() -> tuple[timezone | ZoneInfo, str]:
+    zone_name = os.getenv("MAIL_TIMEZONE", "Asia/Shanghai").strip() or "Asia/Shanghai"
+    try:
+        zone: timezone | ZoneInfo = ZoneInfo(zone_name)
+    except ZoneInfoNotFoundError:
+        zone = timezone.utc
+        zone_name = "UTC"
+    label = os.getenv("MAIL_TIMEZONE_LABEL", "").strip()
+    if not label:
+        label = "北京时间" if zone_name == "Asia/Shanghai" else zone_name
+    return zone, label
+
+
+def format_mail_time(value: str) -> str:
+    if not value:
+        return ""
+    try:
+        zone, label = mail_timezone()
+        return f"{parse_time(value).astimezone(zone).strftime('%Y年%m月%d日 %H:%M')}（{label}）"
+    except ValueError:
+        return value
+
+
+def country_flag(code: str) -> str:
+    code = code.upper()
+    if len(code) == 2 and code.isalpha() and code.isascii():
+        return "".join(chr(127397 + ord(character)) for character in code)
+    return "🌐"
+
+
+def escaped_lines(value: str) -> str:
+    return html.escape(value, quote=True).replace("\n", "<br>")
+
+
+def detail_row(label: str, value: str, hint: str = "") -> str:
+    if not value:
+        return ""
+    hint_html = (
+        f'<div style="margin-top:3px;color:#64748b;font-size:12px;line-height:1.55">{hint}</div>'
+        if hint
+        else ""
+    )
+    return f"""
+      <tr>
+        <td valign="top" style="width:92px;padding:9px 0;color:#64748b;font-size:13px;line-height:1.55">{label}</td>
+        <td valign="top" style="padding:9px 0;color:#1e293b;font-size:14px;font-weight:600;line-height:1.55">{value}{hint_html}</td>
+      </tr>
+    """
+
+
+def build_plain_email(items: list[dict[str, Any]]) -> str:
+    lines = [f"WCA 新比赛通知（共 {len(items)} 场）", ""]
+    for index, raw_item in enumerate(
+        sorted(items, key=lambda value: (value.get("start_date") or "", value.get("name") or "")), 1
+    ):
+        item = normalized_item(raw_item)
+        lines.extend(
+            [
+                f"{index}. {item['name']}",
+                f"比赛日期：{format_competition_date(item['start_date'], item['end_date'])}",
+                f"比赛地点：{' · '.join(part for part in (item['city'], item['venue']) if part) or '待公布'}",
+            ]
+        )
+        if item["venue_address"]:
+            lines.append(f"详细地址：{item['venue_address']}")
+        if item["registration_open"]:
+            lines.append(f"报名开放：{format_mail_time(item['registration_open'])}")
+        if item["registration_close"]:
+            lines.append(f"报名截止：{format_mail_time(item['registration_close'])}")
+        if item["competitor_limit"]:
+            lines.append(f"参赛名额：{item['competitor_limit']} 人")
+        lines.append(f"比赛项目：{item['events']}")
+        if item["organizers"]:
+            lines.append(f"主办方：{item['organizers']}")
+        if item["delegates"]:
+            lines.append(f"WCA 代表：{item['delegates']}")
+        lines.extend([f"查看详情：{item['url']}", ""])
+    lines.append("比赛和报名信息可能调整，请以 WCA 官方页面为准。")
+    return "\n".join(lines)
+
+
 def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
     cards: list[str] = []
-    for raw_item in sorted(items, key=lambda value: (value.get("start_date") or "", value.get("name") or "")):
+    sorted_items = sorted(
+        items, key=lambda value: (value.get("start_date") or "", value.get("name") or "")
+    )
+    for index, raw_item in enumerate(sorted_items, 1):
         normalized = normalized_item(raw_item)
-
-        # HTML 转义字符串字段
-        item = {}
-        for key, value in normalized.items():
-            if isinstance(value, str):
-                item[key] = html.escape(value)
-            else:
-                item[key] = value
-
-        # 格式化比赛日期
-        date_text = item["start_date"] if item["start_date"] == item["end_date"] else f'{item["start_date"]} 至 {item["end_date"]}'
-
-        # 格式化报名时间
-        reg_info = ""
-        if item.get("registration_open") and item.get("registration_close"):
-            try:
-                reg_open_dt = parse_time(item["registration_open"])
-                reg_close_dt = parse_time(item["registration_close"])
-                reg_open_str = reg_open_dt.strftime("%Y-%m-%d %H:%M")
-                reg_close_str = reg_close_dt.strftime("%Y-%m-%d %H:%M")
-                reg_info = f'<div style="margin-bottom:8px"><b>📅 报名时间：</b>{reg_open_str} 至 {reg_close_str}</div>'
-            except:
-                pass
-
-        # 参赛人数限制
-        limit_info = ""
-        if item.get("competitor_limit"):
-            limit_info = f'<div style="margin-bottom:8px"><b>👥 参赛人数：</b>限 {item["competitor_limit"]} 人</div>'
-
-        # 场馆详细信息
-        venue_info = item.get('venue') or '待公布'
-        if item.get('venue_address'):
-            venue_info += f'<div style="margin-top:4px;font-size:13.5px;color:#486581">{item["venue_address"]}</div>'
-        if item.get('venue_details'):
-            venue_info += f'<div style="margin-top:4px;font-size:13.5px;color:#486581">{item["venue_details"]}</div>'
-
-        # 主办方和代表信息
-        organizer_info = ""
-        if item.get("organizers"):
-            organizer_info = f'<div style="margin-bottom:8px"><b>🎯 主办方：</b>{item["organizers"]}</div>'
-
-        delegate_info = ""
-        if item.get("delegates"):
-            delegate_info = f'<div style="margin-bottom:8px"><b>✅ WCA 代表：</b>{item["delegates"]}</div>'
-
-        # 比赛项目标签
-        event_tags = item.get('events', '').split(', ') if isinstance(item.get('events'), str) else []
-        event_badges = ''.join(f'<span style="background:#e8f4fc;color:#1976d2;padding:2px 8px;border-radius:9999px;font-size:12px;margin-right:6px">{tag}</span>' for tag in event_tags[:6])
+        item = {
+            key: html.escape(value, quote=True) if isinstance(value, str) else value
+            for key, value in normalized.items()
+        }
+        date_text = html.escape(
+            format_competition_date(normalized["start_date"], normalized["end_date"])
+        )
+        location_text = " · ".join(
+            value for value in (item["city"], item["venue"]) if value
+        ) or "待公布"
+        venue_hint_parts = [
+            escaped_lines(normalized["venue_address"]),
+            escaped_lines(normalized["venue_details"]),
+        ]
+        venue_hint = "<br>".join(part for part in venue_hint_parts if part)
+        event_badges = "".join(
+            f'<span style="display:inline-block;margin:0 6px 6px 0;padding:5px 10px;background:#eff6ff;border:1px solid #dbeafe;border-radius:999px;color:#1d4ed8;font-size:12px;line-height:1">{html.escape(tag)}</span>'
+            for tag in normalized["events"].split(", ")
+        )
+        registration_rows = "".join(
+            [
+                detail_row(
+                    "报名开放",
+                    html.escape(format_mail_time(normalized["registration_open"])),
+                ),
+                detail_row(
+                    "报名截止",
+                    html.escape(format_mail_time(normalized["registration_close"])),
+                ),
+                detail_row(
+                    "参赛名额",
+                    f"{item['competitor_limit']} 人" if item["competitor_limit"] else "",
+                ),
+            ]
+        )
+        organizer_rows = "".join(
+            [
+                detail_row("主办方", item["organizers"]),
+                detail_row("WCA 代表", item["delegates"]),
+            ]
+        )
+        official_site_link = ""
+        if item["website"] and normalized["website"] != normalized["url"]:
+            official_site_link = f'<a href="{item["website"]}" style="display:inline-block;margin-left:14px;color:#2563eb;font-size:13px;font-weight:600;text-decoration:none">比赛官网 →</a>'
 
         cards.append(
             f"""
-            <div style="background:white;border:1px solid #e5e7eb;border-radius:16px;margin:20px 0;overflow:hidden;box-shadow:0 8px 25px -5px rgba(25, 118, 210, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.07);transition:transform 0.2s">
-              <div style="background:linear-gradient(135deg, #1976d2, #1565c0);color:#ffffff;padding:16px 20px;display:flex;align-items:center;gap:12px">
-                <div style="background:rgba(255,255,255,0.25);width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px">🧊</div>
-                <div style="flex:1">
-                  <div style="font-size:15px;opacity:0.9">{item.get('country_code') or 'WCA'}</div>
-                  <div style="font-size:17px;font-weight:600;line-height:1.2">{item.get('name')}</div>
-                </div>
-              </div>
-              <div style="padding:20px;background:#fafbfc">
-                <div style="display:flex;gap:8px;margin-bottom:12px">
-                  {event_badges}
-                </div>
-                <div style="margin-bottom:10px"><b>📍 地点：</b>{item.get('city') or '待公布'}</div>
-                <div style="margin-bottom:10px"><b>🏢 场馆：</b>{venue_info}</div>
-                <div style="margin-bottom:10px"><b>🗓️ 比赛日期：</b>{date_text}</div>
-                {reg_info}
-                {limit_info}
-                {organizer_info}
-                {delegate_info}
-                <div style="margin-top:14px">
-                  <a href="{item.get('url')}" target="_blank" style="display:inline-block;background:linear-gradient(90deg, #1976d2, #1565c0);color:#fff;padding:11px 24px;border-radius:9999px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 4px 15px rgba(25, 118, 210, 0.3);transition:transform 0.2s">📋 立即查看详情</a>
-                </div>
-              </div>
-            </div>
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 22px;background:#ffffff;border:1px solid #dbe3ee;border-radius:14px;border-collapse:separate;overflow:hidden">
+              <tr>
+                <td style="padding:20px 22px 18px;border-bottom:1px solid #e8eef5;background:#f8fbff">
+                  <div style="margin-bottom:7px;color:#2563eb;font-size:12px;font-weight:700;letter-spacing:.5px">{country_flag(normalized['country_code'])} {item['country_code'] or 'WCA'} · 第 {index} 场</div>
+                  <div style="color:#0f172a;font-size:20px;font-weight:750;line-height:1.35">{item['name']}</div>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:20px 22px 22px">
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:13px;background:#f8fafc;border-radius:10px">
+                    <tr><td style="padding:13px 15px;color:#475569;font-size:12px;font-weight:700">比赛日期</td></tr>
+                    <tr><td style="padding:0 15px 14px;color:#0f172a;font-size:16px;font-weight:700;line-height:1.5">{date_text}</td></tr>
+                  </table>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse">
+                    {detail_row('地点', location_text, venue_hint)}
+                    {registration_rows}
+                  </table>
+                  <div style="margin:15px 0 5px;color:#64748b;font-size:12px;font-weight:700">比赛项目</div>
+                  <div style="line-height:2">{event_badges}</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:7px;border-top:1px solid #eef2f7;border-collapse:collapse">
+                    {organizer_rows}
+                  </table>
+                  <div style="margin-top:18px">
+                    <a href="{item['url']}" style="display:inline-block;padding:11px 18px;background:#2563eb;border-radius:8px;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none">查看 WCA 详情&nbsp; →</a>
+                    {official_site_link}
+                  </div>
+                </td>
+              </tr>
+            </table>
             """
         )
 
-    subject = f"🎉 【WCA Watch】发现 {len(items)} 场新比赛"
+    subject = f"WCA 新赛通知｜{len(items)} 场比赛已公布"
     body = f"""
-    <html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Microsoft YaHei',sans-serif;color:#243b53;background:#f5f7fa;padding:20px">
-      <div style="max-width:700px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 10px 40px -10px rgba(0,0,0,0.15);overflow:hidden">
-        <div style="background:linear-gradient(90deg, #1976d2, #1565c0);color:#ffffff;padding:28px 32px;text-align:center">
-          <div style="font-size:28px;margin-bottom:8px">🧊 WCA 官方公告</div>
-          <div style="font-size:17px;opacity:0.95">最新比赛通知</div>
-        </div>
-        <div style="padding:32px 28px">
-          <p style="font-size:15.5px;color:#486581;margin-bottom:24px">WCA 刚刚公布了 <b style="color:#1976d2">{len(items)}</b> 场新的比赛，<b>快来报名吧！</b></p>
-          {''.join(cards)}
-          <div style="margin-top:32px;padding-top:24px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#829ab1">
-            <div>此邮件由 WCA Watch 自动生成</div>
-            <a href="https://www.worldcubeassociation.org" target="_blank" style="color:#1976d2;text-decoration:none">WCA 官网 →</a>
-          </div>
-        </div>
-      </div>
-    </body></html>
+    <!doctype html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+          @media only screen and (max-width:620px) {{
+            .email-shell {{ width:100% !important; border-radius:0 !important; }}
+            .email-pad {{ padding-left:18px !important; padding-right:18px !important; }}
+          }}
+        </style>
+      </head>
+      <body style="margin:0;padding:0;background:#eef3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif">
+        <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">监测到 {len(items)} 场新公布的 WCA 比赛，日期、地点和报名时间已整理好。</div>
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef3f8">
+          <tr>
+            <td align="center" style="padding:28px 12px">
+              <table role="presentation" width="680" cellspacing="0" cellpadding="0" border="0" class="email-shell" style="width:680px;max-width:100%;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 10px 32px rgba(15,23,42,.08)">
+                <tr>
+                  <td class="email-pad" style="padding:34px 34px 30px;background:#0f3f8f;background-image:linear-gradient(135deg,#174ea6,#2563eb);color:#ffffff">
+                    <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;opacity:.82">WCA WATCH</div>
+                    <div style="margin-top:12px;font-size:29px;font-weight:750;line-height:1.25">新比赛已公布</div>
+                    <div style="margin-top:9px;font-size:15px;line-height:1.65;opacity:.9">本次共整理 <strong>{len(items)}</strong> 场比赛，关键时间和地点一目了然。</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="email-pad" style="padding:28px 34px 32px">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:24px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px">
+                      <tr><td style="padding:12px 14px;color:#9a3412;font-size:13px;line-height:1.6">⏰ 请重点留意报名开放与截止时间；以下时间均已转换为{html.escape(mail_timezone()[1])}。</td></tr>
+                    </table>
+                    {''.join(cards)}
+                    <div style="padding:16px 18px;background:#f8fafc;border-radius:10px;color:#64748b;font-size:12px;line-height:1.7">比赛安排、名额及报名时间可能调整，请以 WCA 官方页面的最新信息为准。</div>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:25px;border-top:1px solid #e2e8f0">
+                      <tr>
+                        <td style="padding-top:18px;color:#94a3b8;font-size:11px;line-height:1.6">此邮件由 WCA Watch 自动整理并发送</td>
+                        <td align="right" style="padding-top:18px"><a href="https://www.worldcubeassociation.org" style="color:#2563eb;font-size:12px;font-weight:600;text-decoration:none">访问 WCA 官网 →</a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
     """
     return subject, body
 
@@ -362,13 +503,21 @@ def validate_smtp(config: dict[str, Any]) -> None:
         raise RuntimeError("邮件配置不完整，请填写 .env（缺少：" + ", ".join(missing) + "）")
 
 
-def send_email(subject: str, body: str) -> None:
+def send_email(subject: str, body: str, plain_body: str = "") -> None:
     config = smtp_config()
     validate_smtp(config)
-    message = MIMEText(body, "html", "utf-8")
+    message = MIMEMultipart("alternative")
     message["Subject"] = subject
     message["From"] = formataddr((config["from_name"], config["user"]))
     message["To"] = ", ".join(config["recipients"])
+    message.attach(
+        MIMEText(
+            plain_body or "WCA Watch 为你整理了新的比赛信息，请使用支持 HTML 的邮件客户端查看。",
+            "plain",
+            "utf-8",
+        )
+    )
+    message.attach(MIMEText(body, "html", "utf-8"))
     context = ssl.create_default_context()
 
     if config["use_ssl"]:
@@ -425,7 +574,7 @@ def check(dry_run: bool = False) -> None:
 
     if matching_items:
         subject, body = build_email(matching_items)
-        send_email(subject, body)
+        send_email(subject, body, build_plain_email(matching_items))
         print(f"[OK] 已发送 {len(matching_items)} 场新比赛通知。")
     else:
         print("[OK] 没有符合条件的新比赛。")
@@ -438,9 +587,35 @@ def check(dry_run: bool = False) -> None:
 
 
 def send_test_email() -> None:
-    subject = "【WCA Watch】邮件配置测试成功"
-    body = "<p>如果你看到了这封邮件，说明 WCA 新比赛通知器的邮件配置正常。</p>"
-    send_email(subject, body)
+    subject = "WCA Watch｜邮件配置测试成功"
+    body = """
+    <!doctype html>
+    <html lang="zh-CN">
+      <body style="margin:0;padding:0;background:#eef3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef3f8">
+          <tr><td align="center" style="padding:36px 14px">
+            <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width:600px;max-width:100%;background:#ffffff;border-radius:16px;overflow:hidden">
+              <tr><td style="padding:32px;background:#0f3f8f;background-image:linear-gradient(135deg,#174ea6,#2563eb);color:#ffffff">
+                <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;opacity:.82">WCA WATCH</div>
+                <div style="margin-top:10px;font-size:26px;font-weight:750">邮件配置成功</div>
+              </td></tr>
+              <tr><td style="padding:30px 32px;color:#334155;font-size:15px;line-height:1.8">
+                <div style="margin-bottom:18px;padding:14px 16px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;color:#047857;font-weight:700">✓ 测试邮件已正常送达</div>
+                <div>SMTP 发信配置工作正常。今后监测到符合筛选条件的新比赛时，你会收到包含比赛日期、地点、报名时间和参赛项目的完整通知。</div>
+                <div style="margin-top:22px;color:#94a3b8;font-size:12px">此邮件仅用于测试，不代表有新比赛公布。</div>
+              </td></tr>
+            </table>
+          </td></tr>
+        </table>
+      </body>
+    </html>
+    """
+    plain_body = (
+        "WCA Watch 邮件配置测试成功\n\n"
+        "测试邮件已正常送达，SMTP 发信配置工作正常。\n"
+        "此邮件仅用于测试，不代表有新比赛公布。"
+    )
+    send_email(subject, body, plain_body)
     print("[OK] 测试邮件已发送。")
 
 
