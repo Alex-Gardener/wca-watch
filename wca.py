@@ -332,7 +332,7 @@ def build_plain_email(items: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
+def build_email(items: list[dict[str, Any]], is_sample: bool = False) -> tuple[str, str]:
     cards: list[str] = []
     sorted_items = sorted(
         items, key=lambda value: (value.get("start_date") or "", value.get("name") or "")
@@ -418,7 +418,31 @@ def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
             """
         )
 
-    subject = f"WCA 新赛通知｜{len(items)} 场比赛已公布"
+    subject = (
+        f"WCA Watch 样例｜{len(items)} 场比赛通知"
+        if is_sample
+        else f"WCA 新赛通知｜{len(items)} 场比赛已公布"
+    )
+    hero_title = "比赛通知样例" if is_sample else "新比赛已公布"
+    hero_intro = (
+        "这是邮件样式预览，下面展示一场完整的比赛通知。"
+        if is_sample
+        else f"本次共整理 <strong>{len(items)}</strong> 场比赛，关键时间和地点一目了然。"
+    )
+    preheader = (
+        "WCA Watch 比赛通知邮件样例，展示日期、地点、报名时间和比赛项目。"
+        if is_sample
+        else f"监测到 {len(items)} 场新公布的 WCA 比赛，日期、地点和报名时间已整理好。"
+    )
+    sample_notice = (
+        """
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px">
+          <tr><td style="padding:12px 14px;color:#047857;font-size:13px;font-weight:700;line-height:1.6">✓ 这是一封演示邮件，不代表该比赛真实存在，也不会产生报名记录。</td></tr>
+        </table>
+        """
+        if is_sample
+        else ""
+    )
     body = f"""
     <!doctype html>
     <html lang="zh-CN">
@@ -433,7 +457,7 @@ def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
         </style>
       </head>
       <body style="margin:0;padding:0;background:#eef3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif">
-        <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">监测到 {len(items)} 场新公布的 WCA 比赛，日期、地点和报名时间已整理好。</div>
+        <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">{preheader}</div>
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef3f8">
           <tr>
             <td align="center" style="padding:28px 12px">
@@ -441,12 +465,13 @@ def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
                 <tr>
                   <td class="email-pad" style="padding:34px 34px 30px;background:#0f3f8f;background-image:linear-gradient(135deg,#174ea6,#2563eb);color:#ffffff">
                     <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;opacity:.82">WCA WATCH</div>
-                    <div style="margin-top:12px;font-size:29px;font-weight:750;line-height:1.25">新比赛已公布</div>
-                    <div style="margin-top:9px;font-size:15px;line-height:1.65;opacity:.9">本次共整理 <strong>{len(items)}</strong> 场比赛，关键时间和地点一目了然。</div>
+                    <div style="margin-top:12px;font-size:29px;font-weight:750;line-height:1.25">{hero_title}</div>
+                    <div style="margin-top:9px;font-size:15px;line-height:1.65;opacity:.9">{hero_intro}</div>
                   </td>
                 </tr>
                 <tr>
                   <td class="email-pad" style="padding:28px 34px 32px">
+                    {sample_notice}
                     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:24px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px">
                       <tr><td style="padding:12px 14px;color:#9a3412;font-size:13px;line-height:1.6">⏰ 请重点留意报名开放与截止时间；以下时间均已转换为{html.escape(mail_timezone()[1])}。</td></tr>
                     </table>
@@ -587,36 +612,30 @@ def check(dry_run: bool = False) -> None:
 
 
 def send_test_email() -> None:
-    subject = "WCA Watch｜邮件配置测试成功"
-    body = """
-    <!doctype html>
-    <html lang="zh-CN">
-      <body style="margin:0;padding:0;background:#eef3f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef3f8">
-          <tr><td align="center" style="padding:36px 14px">
-            <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width:600px;max-width:100%;background:#ffffff;border-radius:16px;overflow:hidden">
-              <tr><td style="padding:32px;background:#0f3f8f;background-image:linear-gradient(135deg,#174ea6,#2563eb);color:#ffffff">
-                <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;opacity:.82">WCA WATCH</div>
-                <div style="margin-top:10px;font-size:26px;font-weight:750">邮件配置成功</div>
-              </td></tr>
-              <tr><td style="padding:30px 32px;color:#334155;font-size:15px;line-height:1.8">
-                <div style="margin-bottom:18px;padding:14px 16px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;color:#047857;font-weight:700">✓ 测试邮件已正常送达</div>
-                <div>SMTP 发信配置工作正常。今后监测到符合筛选条件的新比赛时，你会收到包含比赛日期、地点、报名时间和参赛项目的完整通知。</div>
-                <div style="margin-top:22px;color:#94a3b8;font-size:12px">此邮件仅用于测试，不代表有新比赛公布。</div>
-              </td></tr>
-            </table>
-          </td></tr>
-        </table>
-      </body>
-    </html>
-    """
-    plain_body = (
-        "WCA Watch 邮件配置测试成功\n\n"
-        "测试邮件已正常送达，SMTP 发信配置工作正常。\n"
-        "此邮件仅用于测试，不代表有新比赛公布。"
-    )
+    sample = {
+        "id": "WCAWatchSample2026",
+        "name": "WCA Watch 魔方公开赛 2026（演示）",
+        "country_iso2": "CN",
+        "city": "上海市",
+        "venue": "示例城市体育中心",
+        "venue_address": "上海市示例区魔方路 100 号",
+        "venue_details": "二楼综合比赛馆，请从东门进入",
+        "start_date": "2026-09-19",
+        "end_date": "2026-09-20",
+        "announced_at": "2026-07-29T08:00:00Z",
+        "registration_open": "2026-08-01T12:00:00Z",
+        "registration_close": "2026-09-10T12:00:00Z",
+        "competitor_limit": 180,
+        "event_ids": ["333", "222", "444", "333oh", "pyram", "skewb"],
+        "organizers": [{"name": "WCA Watch 赛事团队"}],
+        "delegates": [{"name": "示例 WCA 代表"}],
+        "url": "https://www.worldcubeassociation.org/competitions",
+        "website": "https://www.worldcubeassociation.org",
+    }
+    subject, body = build_email([sample], is_sample=True)
+    plain_body = "【演示邮件，不代表比赛真实存在】\n\n" + build_plain_email([sample])
     send_email(subject, body, plain_body)
-    print("[OK] 测试邮件已发送。")
+    print("[OK] 比赛通知样例邮件已发送。")
 
 
 def acquire_lock():

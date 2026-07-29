@@ -107,6 +107,13 @@ class PresentationAndFilterTests(unittest.TestCase):
             ["text/plain", "text/html"],
         )
 
+    def test_sample_email_is_clearly_marked(self):
+        item = competition("sample", "2026-07-29T13:00:00Z", name="演示比赛")
+        subject, body = wca.build_email([item], is_sample=True)
+        self.assertIn("样例", subject)
+        self.assertIn("演示邮件", body)
+        self.assertIn("不代表该比赛真实存在", body)
+
 
 if __name__ == "__main__":
     unittest.main()
