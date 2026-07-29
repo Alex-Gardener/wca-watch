@@ -1,0 +1,7 @@
+.env
+.venv/
+.wca_seen.json
+.wca_watch.lock
+*.log
+__pycache__/
+.DS_Store
