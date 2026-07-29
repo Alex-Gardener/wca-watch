@@ -1,0 +1,56 @@
+name: WCA 新比赛邮件通知
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "发送一封测试邮件而不是执行增量检查"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: wca-watch
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run WCA watcher
+        env:
+          SMTP_HOST: smtp.mail.me.com
+          SMTP_PORT: "587"
+          SMTP_USE_SSL: "false"
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM_NAME: WCA Watch
+          WCA_STATE_FILE: ${{ github.workspace }}/.github/wca_state.json
+        run: |
+          if [[ "${{ inputs.test_email }}" == "true" ]]; then
+            python3 wca.py --test-email
+          else
+            python3 wca.py
+          fi
+
+      - name: Persist cursor when it advances
+        run: |
+          if git diff --quiet -- .github/wca_state.json; then
+            echo "No new WCA announcements; state unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/wca_state.json
+          git commit -m "chore: advance WCA announcement cursor"
+          git push

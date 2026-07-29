@@ -30,7 +30,7 @@ from urllib.request import Request, urlopen
 
 APP_DIR = Path(__file__).resolve().parent
 ENV_FILE = APP_DIR / ".env"
-STATE_FILE = APP_DIR / ".wca_seen.json"
+STATE_FILE = Path(os.getenv("WCA_STATE_FILE", str(APP_DIR / ".wca_seen.json")))
 LOCK_FILE = APP_DIR / ".wca_watch.lock"
 WCA_API = "https://www.worldcubeassociation.org/api/v0/competitions"
 WCA_BASE = "https://www.worldcubeassociation.org"
@@ -167,19 +167,54 @@ def newest_cursor(items: list[dict[str, Any]], fallback: str = "") -> str:
     return max(timestamps, key=parse_time) if timestamps else fallback
 
 
-def normalized_item(item: dict[str, Any]) -> dict[str, str]:
+def normalized_item(item: dict[str, Any]) -> dict[str, Any]:
     competition_id = str(item.get("id") or "")
+
+    # 格式化项目列表，使用更友好的中文名称
+    event_map = {
+        "333": "三阶", "222": "二阶", "444": "四阶", "555": "五阶",
+        "666": "六阶", "777": "七阶", "333bf": "三盲", "333fm": "最少步",
+        "333oh": "单手", "clock": "魔表", "minx": "五魔", "pyram": "金字塔",
+        "skewb": "斜转", "sq1": "SQ1", "444bf": "四盲", "555bf": "五盲",
+        "333mbf": "多盲"
+    }
+    event_ids = item.get("event_ids") or []
+    events = ", ".join(event_map.get(str(e), str(e)) for e in event_ids) or "待公布"
+
+    # 处理报名信息
+    reg_open = item.get("registration_open") or ""
+    reg_close = item.get("registration_close") or ""
+    competitor_limit = item.get("competitor_limit")
+
+    # 处理主办方和代表
+    organizers = item.get("organizers") or []
+    delegates = item.get("delegates") or []
+    organizer_names = ", ".join(o.get("name", "") for o in organizers[:3] if o.get("name"))
+    delegate_names = ", ".join(d.get("name", "") for d in delegates[:2] if d.get("name"))
+
+    # 场馆详细信息
+    venue_address = str(item.get("venue_address") or "")
+    venue_details = str(item.get("venue_details") or "")
+
     return {
         "id": competition_id,
         "name": str(item.get("name") or competition_id),
         "country_code": str(item.get("country_iso2") or ""),
         "city": str(item.get("city") or ""),
         "venue": str(item.get("venue") or ""),
+        "venue_address": venue_address,
+        "venue_details": venue_details,
         "start_date": str(item.get("start_date") or ""),
         "end_date": str(item.get("end_date") or item.get("start_date") or ""),
         "announced_at": str(item.get("announced_at") or ""),
-        "events": ", ".join(str(event) for event in item.get("event_ids") or []) or "待公布",
+        "events": events,
+        "registration_open": reg_open,
+        "registration_close": reg_close,
+        "competitor_limit": competitor_limit,
+        "organizers": organizer_names,
+        "delegates": delegate_names,
         "url": str(item.get("url") or f"{WCA_BASE}/competitions/{competition_id}"),
+        "website": str(item.get("website") or ""),
     }
 
 
@@ -193,31 +228,102 @@ def filter_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def build_email(items: list[dict[str, Any]]) -> tuple[str, str]:
     cards: list[str] = []
     for raw_item in sorted(items, key=lambda value: (value.get("start_date") or "", value.get("name") or "")):
-        item = {key: html.escape(value) for key, value in normalized_item(raw_item).items()}
+        normalized = normalized_item(raw_item)
+
+        # HTML 转义字符串字段
+        item = {}
+        for key, value in normalized.items():
+            if isinstance(value, str):
+                item[key] = html.escape(value)
+            else:
+                item[key] = value
+
+        # 格式化比赛日期
         date_text = item["start_date"] if item["start_date"] == item["end_date"] else f'{item["start_date"]} 至 {item["end_date"]}'
+
+        # 格式化报名时间
+        reg_info = ""
+        if item.get("registration_open") and item.get("registration_close"):
+            try:
+                reg_open_dt = parse_time(item["registration_open"])
+                reg_close_dt = parse_time(item["registration_close"])
+                reg_open_str = reg_open_dt.strftime("%Y-%m-%d %H:%M")
+                reg_close_str = reg_close_dt.strftime("%Y-%m-%d %H:%M")
+                reg_info = f'<div style="margin-bottom:8px"><b>📅 报名时间：</b>{reg_open_str} 至 {reg_close_str}</div>'
+            except:
+                pass
+
+        # 参赛人数限制
+        limit_info = ""
+        if item.get("competitor_limit"):
+            limit_info = f'<div style="margin-bottom:8px"><b>👥 参赛人数：</b>限 {item["competitor_limit"]} 人</div>'
+
+        # 场馆详细信息
+        venue_info = item.get('venue') or '待公布'
+        if item.get('venue_address'):
+            venue_info += f'<div style="margin-top:4px;font-size:13.5px;color:#486581">{item["venue_address"]}</div>'
+        if item.get('venue_details'):
+            venue_info += f'<div style="margin-top:4px;font-size:13.5px;color:#486581">{item["venue_details"]}</div>'
+
+        # 主办方和代表信息
+        organizer_info = ""
+        if item.get("organizers"):
+            organizer_info = f'<div style="margin-bottom:8px"><b>🎯 主办方：</b>{item["organizers"]}</div>'
+
+        delegate_info = ""
+        if item.get("delegates"):
+            delegate_info = f'<div style="margin-bottom:8px"><b>✅ WCA 代表：</b>{item["delegates"]}</div>'
+
+        # 比赛项目标签
+        event_tags = item.get('events', '').split(', ') if isinstance(item.get('events'), str) else []
+        event_badges = ''.join(f'<span style="background:#e8f4fc;color:#1976d2;padding:2px 8px;border-radius:9999px;font-size:12px;margin-right:6px">{tag}</span>' for tag in event_tags[:6])
+
         cards.append(
             f"""
-            <div style="border:1px solid #d9e2ec;border-radius:10px;margin:16px 0;overflow:hidden">
-              <div style="background:#1976d2;color:#fff;padding:10px 14px;font-weight:600">
-                {item['country_code'] or 'WCA'} · {item['name']}
+            <div style="background:white;border:1px solid #e5e7eb;border-radius:16px;margin:20px 0;overflow:hidden;box-shadow:0 8px 25px -5px rgba(25, 118, 210, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.07);transition:transform 0.2s">
+              <div style="background:linear-gradient(135deg, #1976d2, #1565c0);color:#ffffff;padding:16px 20px;display:flex;align-items:center;gap:12px">
+                <div style="background:rgba(255,255,255,0.25);width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px">🧊</div>
+                <div style="flex:1">
+                  <div style="font-size:15px;opacity:0.9">{item.get('country_code') or 'WCA'}</div>
+                  <div style="font-size:17px;font-weight:600;line-height:1.2">{item.get('name')}</div>
+                </div>
               </div>
-              <div style="padding:14px;line-height:1.7">
-                <div><b>时间：</b>{date_text}</div>
-                <div><b>地点：</b>{item['city'] or '待公布'}</div>
-                <div><b>场馆：</b>{item['venue'] or '待公布'}</div>
-                <div><b>项目：</b>{item['events']}</div>
-                <div><a href="{item['url']}">查看 WCA 比赛详情</a></div>
+              <div style="padding:20px;background:#fafbfc">
+                <div style="display:flex;gap:8px;margin-bottom:12px">
+                  {event_badges}
+                </div>
+                <div style="margin-bottom:10px"><b>📍 地点：</b>{item.get('city') or '待公布'}</div>
+                <div style="margin-bottom:10px"><b>🏢 场馆：</b>{venue_info}</div>
+                <div style="margin-bottom:10px"><b>🗓️ 比赛日期：</b>{date_text}</div>
+                {reg_info}
+                {limit_info}
+                {organizer_info}
+                {delegate_info}
+                <div style="margin-top:14px">
+                  <a href="{item.get('url')}" target="_blank" style="display:inline-block;background:linear-gradient(90deg, #1976d2, #1565c0);color:#fff;padding:11px 24px;border-radius:9999px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 4px 15px rgba(25, 118, 210, 0.3);transition:transform 0.2s">📋 立即查看详情</a>
+                </div>
               </div>
             </div>
             """
         )
 
-    subject = f"【WCA 新比赛】发现 {len(items)} 场新公告"
+    subject = f"🎉 【WCA Watch】发现 {len(items)} 场新比赛"
     body = f"""
-    <html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#243b53">
-      <p>WCA 刚刚公布了新的比赛：</p>
-      {''.join(cards)}
-      <p style="color:#829ab1;font-size:12px">此邮件由 WCA Watch 自动发送，数据来自 WCA 官方 API。</p>
+    <html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Microsoft YaHei',sans-serif;color:#243b53;background:#f5f7fa;padding:20px">
+      <div style="max-width:700px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 10px 40px -10px rgba(0,0,0,0.15);overflow:hidden">
+        <div style="background:linear-gradient(90deg, #1976d2, #1565c0);color:#ffffff;padding:28px 32px;text-align:center">
+          <div style="font-size:28px;margin-bottom:8px">🧊 WCA 官方公告</div>
+          <div style="font-size:17px;opacity:0.95">最新比赛通知</div>
+        </div>
+        <div style="padding:32px 28px">
+          <p style="font-size:15.5px;color:#486581;margin-bottom:24px">WCA 刚刚公布了 <b style="color:#1976d2">{len(items)}</b> 场新的比赛，<b>快来报名吧！</b></p>
+          {''.join(cards)}
+          <div style="margin-top:32px;padding-top:24px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#829ab1">
+            <div>此邮件由 WCA Watch 自动生成</div>
+            <a href="https://www.worldcubeassociation.org" target="_blank" style="color:#1976d2;text-decoration:none">WCA 官网 →</a>
+          </div>
+        </div>
+      </div>
     </body></html>
     """
     return subject, body
@@ -326,7 +432,9 @@ def check(dry_run: bool = False) -> None:
 
     combined = fetched + [{"id": value} for value in state.get("recent_ids", [])]
     next_cursor = newest_cursor(fetched, str(state["last_announced_at"]))
-    save_state(make_state(next_cursor, combined, state.get("initialized_at")))
+    # 没有新公告时无需写入 last_checked_at，避免云端工作流每 30 分钟产生一次提交。
+    if new_items or next_cursor != str(state["last_announced_at"]):
+        save_state(make_state(next_cursor, combined, state.get("initialized_at")))
 
 
 def send_test_email() -> None:
