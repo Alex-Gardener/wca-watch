@@ -1,5 +1,6 @@
 import os
 import unittest
+from datetime import datetime, timedelta, timezone
 from email import message_from_string
 from unittest.mock import patch
 
@@ -122,6 +123,56 @@ class PresentationAndFilterTests(unittest.TestCase):
         self.assertIn("样例", subject)
         self.assertIn("演示邮件", body)
         self.assertIn("比赛信息来自 WCA 最新公开数据", body)
+
+
+class RegistrationStatusTests(unittest.TestCase):
+    def _iso(self, dt):
+        return dt.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+    def test_badge_statuses(self):
+        now = datetime.now(timezone.utc)
+        upcoming = {
+            "registration_open": self._iso(now + timedelta(days=5)),
+            "registration_close": self._iso(now + timedelta(days=12)),
+        }
+        open_item = {
+            "registration_open": self._iso(now - timedelta(days=2)),
+            "registration_close": self._iso(now + timedelta(days=5)),
+        }
+        closed = {
+            "registration_open": self._iso(now - timedelta(days=10)),
+            "registration_close": self._iso(now - timedelta(days=2)),
+        }
+        self.assertEqual(wca.registration_status(upcoming)[0], "即将开放")
+        self.assertEqual(wca.registration_status(open_item)[0], "报名中")
+        self.assertEqual(wca.registration_status(closed)[0], "报名已截止")
+
+    def test_no_registration_returns_empty(self):
+        self.assertEqual(wca.registration_status({}), ("", "", "", ""))
+
+    def test_countdown_hints_for_open_competition(self):
+        now = datetime.now(timezone.utc)
+        item = {
+            "registration_open": self._iso(now - timedelta(days=1)),
+            "registration_close": self._iso(now + timedelta(days=3)),
+        }
+        _, _, open_hint, close_hint = wca.registration_status(item)
+        self.assertEqual(open_hint, "")
+        self.assertIn("距报名截止 3 天", close_hint)
+
+    def test_email_and_plain_contain_badge_and_countdown(self):
+        item = competition("reg", "2026-07-29T13:00:00Z", name="报名演示赛")
+        item.update(
+            {
+                "registration_open": "2026-07-20T00:00:00Z",
+                "registration_close": "2030-01-01T00:00:00Z",
+            }
+        )
+        subject, body = wca.build_email([item])
+        plain = wca.build_plain_email([item])
+        self.assertIn("报名中", body)
+        self.assertIn("距报名截止", body)
+        self.assertIn("距报名截止", plain)
 
 
 if __name__ == "__main__":

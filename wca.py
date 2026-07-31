@@ -318,6 +318,51 @@ def detail_row(label: str, value: str, hint: str = "") -> str:
     """
 
 
+BADGE_STYLES = {
+    "报名中": "background:#ecfdf5;border:1px solid #a7f3d0;color:#047857;",
+    "即将开放": "background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;",
+    "报名已截止": "background:#f3f4f6;border:1px solid #e5e7eb;color:#6b7280;",
+}
+
+
+def _days_until(now: datetime, target: datetime) -> int:
+    """距 target 还有多少天（不足一天按一天计，已过返回 0）。"""
+    if target <= now:
+        return 0
+    seconds = (target - now).total_seconds()
+    return int(seconds // 86400) + (1 if seconds % 86400 else 0)
+
+
+def _countdown_text(now: datetime, target: datetime | None, action: str) -> str:
+    """生成倒计时文案，如“距报名截止 3 天”；目标已过或缺失时返回空。"""
+    if target is None or target <= now:
+        return ""
+    days = _days_until(now, target)
+    return f"距{action} 今天" if days == 0 else f"距{action} {days} 天"
+
+
+def registration_status(item: dict[str, Any]) -> tuple[str, str, str, str]:
+    """根据当前时间计算报名状态。
+
+    返回 (徽章文本, 徽章样式, 报名开放倒计时, 报名截止倒计时)；无报名时间信息时返回四个空串。
+    """
+    open_raw = str(item.get("registration_open") or "")
+    close_raw = str(item.get("registration_close") or "")
+    if not open_raw and not close_raw:
+        return "", "", "", ""
+    now = datetime.now(timezone.utc)
+    open_dt = parse_time(open_raw) if open_raw else None
+    close_dt = parse_time(close_raw) if close_raw else None
+    open_hint = _countdown_text(now, open_dt, "报名开始")
+    close_hint = _countdown_text(now, close_dt, "报名截止")
+
+    if close_dt and now > close_dt:
+        return "报名已截止", BADGE_STYLES["报名已截止"], "", "报名已结束"
+    if open_dt and now < open_dt:
+        return "即将开放", BADGE_STYLES["即将开放"], open_hint, ""
+    return "报名中", BADGE_STYLES["报名中"], "", close_hint
+
+
 def build_plain_email(items: list[dict[str, Any]]) -> str:
     lines = [f"WCA 新比赛通知（共 {len(items)} 场）", ""]
     for index, raw_item in enumerate(
@@ -333,10 +378,11 @@ def build_plain_email(items: list[dict[str, Any]]) -> str:
         )
         if item["venue_address"]:
             lines.append(f"详细地址：{item['venue_address']}")
+        _, _, open_hint, close_hint = registration_status(raw_item)
         if item["registration_open"]:
-            lines.append(f"报名开放：{format_mail_time(item['registration_open'])}")
+            lines.append(f"报名开放：{format_mail_time(item['registration_open'])}" + (f"（{open_hint}）" if open_hint else ""))
         if item["registration_close"]:
-            lines.append(f"报名截止：{format_mail_time(item['registration_close'])}")
+            lines.append(f"报名截止：{format_mail_time(item['registration_close'])}" + (f"（{close_hint}）" if close_hint else ""))
         if item["competitor_limit"]:
             lines.append(f"参赛名额：{item['competitor_limit']} 人")
         lines.append(f"比赛项目：{item['events']}")
@@ -375,15 +421,23 @@ def build_email(items: list[dict[str, Any]], is_sample: bool = False) -> tuple[s
             f'<span style="display:inline-block;margin:0 6px 6px 0;padding:5px 10px;background:#eff6ff;border:1px solid #dbeafe;border-radius:999px;color:#1d4ed8;font-size:12px;line-height:1">{html.escape(tag)}</span>'
             for tag in normalized["events"].split(", ")
         )
+        badge_text, badge_style, open_hint, close_hint = registration_status(normalized)
+        badge_html = (
+            f'<span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;line-height:1.4;{badge_style}">{html.escape(badge_text)}</span>'
+            if badge_text
+            else ""
+        )
         registration_rows = "".join(
             [
                 detail_row(
                     "报名开放",
                     html.escape(format_mail_time(normalized["registration_open"])),
+                    open_hint,
                 ),
                 detail_row(
                     "报名截止",
                     html.escape(format_mail_time(normalized["registration_close"])),
+                    close_hint,
                 ),
                 detail_row(
                     "参赛名额",
@@ -407,7 +461,12 @@ def build_email(items: list[dict[str, Any]], is_sample: bool = False) -> tuple[s
               <tr>
                 <td style="padding:20px 22px 18px;border-bottom:1px solid #e8eef5;background:#f8fbff">
                   <div style="margin-bottom:7px;color:#2563eb;font-size:12px;font-weight:700;letter-spacing:.5px">{country_flag(normalized['country_code'])} {item['country_code'] or 'WCA'} · 第 {index} 场</div>
-                  <div style="color:#0f172a;font-size:20px;font-weight:750;line-height:1.35">{item['name']}</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td style="padding:0"><div style="color:#0f172a;font-size:20px;font-weight:750;line-height:1.35">{item['name']}</div></td>
+                      <td align="right" valign="top" style="padding:2px 0 0 12px;white-space:nowrap">{badge_html}</td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
               <tr>
