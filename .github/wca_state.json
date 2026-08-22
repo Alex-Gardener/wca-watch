@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-08-22T14:26:41+00:00",
-  "last_announced_at": "2026-08-22T14:03:20.000Z",
+  "last_checked_at": "2026-08-22T16:29:50+00:00",
+  "last_announced_at": "2026-08-22T16:25:00.000Z",
   "recent_ids": [
+    "BornholmOpen2027",
+    "BornholmWinter2027",
     "LearnHowToCubeinLaguna2026",
     "ImaginaireQuebec2026",
     "ClockinginCobb2026",
