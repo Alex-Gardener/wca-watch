@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-08-25T11:00:36+00:00",
-  "last_announced_at": "2026-08-25T10:24:22.000Z",
+  "last_checked_at": "2026-08-25T11:55:48+00:00",
+  "last_announced_at": "2026-08-25T11:42:29.000Z",
   "recent_ids": [
+    "PBFBrisbane2026",
+    "BrisbaneFinnishAfternoon2026",
+    "BrisbaneFinnishMorning2026",
     "FacaMaispelasCriancas2026",
     "PBQSingaporeOct2026",
     "IdahoSpudcubingIII2026",
