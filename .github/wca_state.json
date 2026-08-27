@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-08-27T00:35:15+00:00",
-  "last_announced_at": "2026-08-27T00:20:48.000Z",
+  "last_checked_at": "2026-08-27T11:03:14+00:00",
+  "last_announced_at": "2026-08-27T08:25:04.000Z",
   "recent_ids": [
+    "SorgOpen2026",
+    "Svalbard2026",
+    "RoadtoNatsElDorado2026",
+    "CoralitoBahiadeBanderas2026",
     "ConnecticutChampionship2026",
     "KirkkoNxNummi2026",
     "FinnishQuietChampionship2026",
