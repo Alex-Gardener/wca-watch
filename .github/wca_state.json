@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-05T19:24:57+00:00",
-  "last_announced_at": "2026-09-05T18:56:50.000Z",
+  "last_checked_at": "2026-09-06T03:56:50+00:00",
+  "last_announced_at": "2026-09-06T01:50:58.000Z",
   "recent_ids": [
+    "BelmontFTO2027",
+    "DosquebradasII2026",
+    "NewmarketSideEvents2026",
     "SaltaCubingChess2026",
     "ElegiTuRondaBA2026",
     "PyraminxinPewaukee2026",
