@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-07T06:32:49+00:00",
-  "last_announced_at": "2026-09-07T02:25:38.000Z",
+  "last_checked_at": "2026-09-07T13:24:09+00:00",
+  "last_announced_at": "2026-09-07T13:12:10.000Z",
   "recent_ids": [
+    "CardiffNovember2026",
+    "AigleNoir2026",
+    "CaviteSpeedcubingOpenXIV2026",
     "SidesBahia2026",
     "PartageOpen2026",
     "BaguioSpeedcubingOpen2026",
