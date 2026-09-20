@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-20T18:59:16+00:00",
-  "last_announced_at": "2026-09-20T17:33:55.000Z",
+  "last_checked_at": "2026-09-20T23:26:40+00:00",
+  "last_announced_at": "2026-09-20T23:21:14.000Z",
   "recent_ids": [
+    "SaintMikesOpen2026",
+    "BerkeleyOctoberWeekday2026",
     "BiginBruges2026",
     "QuietBelgianNationals2026",
     "TorontoWeeknightsII2026",
