@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-25T07:26:40+00:00",
-  "last_announced_at": "2026-09-25T02:48:14.000Z",
+  "last_checked_at": "2026-09-26T00:03:45+00:00",
+  "last_announced_at": "2026-09-25T23:17:28.000Z",
   "recent_ids": [
+    "AstanaPBQ2026",
+    "PreChampionshipAthens2026",
     "EcuadorNationals2026",
     "HobartSpringCubing2026",
     "JiangmenOpen2026",
@@ -501,8 +503,6 @@
     "LAPRECubingIIPucallpa2026",
     "BibliopenIVCali2026",
     "TulsaUnorthWinter2026",
-    "PBQZilina2026",
-    "EveninEagan2026",
-    "CeheginCallao2026"
+    "PBQZilina2026"
   ]
 }
