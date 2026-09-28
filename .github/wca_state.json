@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-27T19:11:40+00:00",
-  "last_announced_at": "2026-09-27T15:23:10.000Z",
+  "last_checked_at": "2026-09-28T07:27:10+00:00",
+  "last_announced_at": "2026-09-28T01:35:51.000Z",
   "recent_ids": [
+    "CubingatTheCube2027",
     "MalaysiaCubeChampionship2026",
     "EuropeFMCFriendsAutumn2026",
     "AhmedabadWinterOpen2026",
@@ -502,7 +503,6 @@
     "HoustonHolidayHustle2026",
     "PaipaalCubo2026",
     "FMCaMontreal2026",
-    "VratsaCubeOpen2026",
-    "LjubljanaBigBlind2026"
+    "VratsaCubeOpen2026"
   ]
 }
