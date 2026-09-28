@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-28T07:27:10+00:00",
-  "last_announced_at": "2026-09-28T01:35:51.000Z",
+  "last_checked_at": "2026-09-28T15:49:36+00:00",
+  "last_announced_at": "2026-09-28T09:45:57.000Z",
   "recent_ids": [
+    "MriyDiyCubingKyiv2026",
+    "BlindUkrainianNationals2026",
     "CubingatTheCube2027",
     "MalaysiaCubeChampionship2026",
     "EuropeFMCFriendsAutumn2026",
@@ -501,8 +503,6 @@
     "EmpireStateNewcomers2026",
     "EmpireStateALL1Stars2026",
     "HoustonHolidayHustle2026",
-    "PaipaalCubo2026",
-    "FMCaMontreal2026",
-    "VratsaCubeOpen2026"
+    "PaipaalCubo2026"
   ]
 }
