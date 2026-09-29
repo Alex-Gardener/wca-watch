@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-29T01:39:56+00:00",
-  "last_announced_at": "2026-09-28T21:55:21.000Z",
+  "last_checked_at": "2026-09-29T15:00:53+00:00",
+  "last_announced_at": "2026-09-29T09:26:08.000Z",
   "recent_ids": [
+    "TivatOpen2026",
+    "GreekChampionship2026",
+    "ThailandCoolDown2026",
+    "APJBLDCubeOpen2026",
     "WaterlooAutumn2026",
     "LarchmontTGIF2026",
     "UMAIalcubo2026",
@@ -499,10 +503,6 @@
     "AveiroBlindQualifier2026",
     "FMCPortugalChampionship2026",
     "PBQOdivelasIII2026",
-    "MariettaMondayMiniVI2026",
-    "MariettaMondayMiniV2026",
-    "EswatiniNationals2026",
-    "RheinNeckarTTC2027",
-    "DebicaCubingSummer2026"
+    "MariettaMondayMiniVI2026"
   ]
 }
