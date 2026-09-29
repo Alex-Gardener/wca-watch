@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-29T15:00:53+00:00",
-  "last_announced_at": "2026-09-29T09:26:08.000Z",
+  "last_checked_at": "2026-09-29T20:09:40+00:00",
+  "last_announced_at": "2026-09-29T17:03:19.000Z",
   "recent_ids": [
+    "GaridechOpen2026",
+    "NorthIdahoFTOLaunch2027",
+    "EkvatorRivneHalloween2026",
     "TivatOpen2026",
     "GreekChampionship2026",
     "ThailandCoolDown2026",
@@ -500,9 +503,6 @@
     "CucutaLibraryV22026",
     "AXEzinho3x3Lauro2026",
     "KentFall2026",
-    "AveiroBlindQualifier2026",
-    "FMCPortugalChampionship2026",
-    "PBQOdivelasIII2026",
-    "MariettaMondayMiniVI2026"
+    "AveiroBlindQualifier2026"
   ]
 }
