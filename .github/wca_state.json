@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-30T04:58:50+00:00",
-  "last_announced_at": "2026-09-30T02:55:31.000Z",
+  "last_checked_at": "2026-09-30T11:05:29+00:00",
+  "last_announced_at": "2026-09-30T07:06:50.000Z",
   "recent_ids": [
+    "BerkeleySides2026",
     "CubiKonce2027",
     "PalaisOpen2026",
     "GaridechOpen2026",
@@ -502,7 +503,6 @@
     "DFWCubingWinter2027",
     "HuaHinCubeOpen2026",
     "PoCoClassics2026",
-    "CucutaLibraryV22026",
-    "AXEzinho3x3Lauro2026"
+    "CucutaLibraryV22026"
   ]
 }
