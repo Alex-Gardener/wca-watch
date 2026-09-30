@@ -1,9 +1,18 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-30T11:05:29+00:00",
-  "last_announced_at": "2026-09-30T07:06:50.000Z",
+  "last_checked_at": "2026-09-30T16:57:06+00:00",
+  "last_announced_at": "2026-09-30T16:47:14.000Z",
   "recent_ids": [
+    "SkowheganPuzzlefestII2027",
+    "SkowheganWeekdayDual2027",
+    "DualFMCandMoreMaine2026",
+    "NewYearFTOinMaine2027",
+    "AITUOpen2026",
+    "RoyalCountyColours2026",
+    "SaguaroScrambleAZ2026",
+    "WeekendCubingIsrael2026",
+    "WiltshireWinter2026",
     "BerkeleySides2026",
     "CubiKonce2027",
     "PalaisOpen2026",
@@ -494,15 +503,6 @@
     "FTOinLadce2027",
     "FlexinLex2026",
     "DobbsFerryTripleDouble2026",
-    "VilajugaVilafranca2026",
-    "KCCollegeCubeOpen2026",
-    "PrimaveraenAsuncion2026",
-    "LOpendeMeaux2026",
-    "KirstenhofEarlySpring2026",
-    "GrazOpen2026",
-    "DFWCubingWinter2027",
-    "HuaHinCubeOpen2026",
-    "PoCoClassics2026",
-    "CucutaLibraryV22026"
+    "VilajugaVilafranca2026"
   ]
 }
