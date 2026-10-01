@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-09-30T21:22:34+00:00",
-  "last_announced_at": "2026-09-30T19:21:28.000Z",
+  "last_checked_at": "2026-10-01T00:45:44+00:00",
+  "last_announced_at": "2026-09-30T19:47:55.000Z",
   "recent_ids": [
+    "VERKXXII2026",
+    "VERKXXI2026",
+    "VERKXX2026",
     "Chiconcuac2026",
     "SkowheganPuzzlefestII2027",
     "SkowheganWeekdayDual2027",
@@ -500,9 +503,6 @@
     "NanakuliLiiOkakopaA2026",
     "HawaiiBigIslandFall2026",
     "CubeFactoryAleksandrow2026",
-    "AstanaNonCube2026",
-    "FTOinLadce2027",
-    "FlexinLex2026",
-    "DobbsFerryTripleDouble2026"
+    "AstanaNonCube2026"
   ]
 }
