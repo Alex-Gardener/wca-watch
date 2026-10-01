@@ -1,9 +1,21 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-01T00:45:44+00:00",
-  "last_announced_at": "2026-09-30T19:47:55.000Z",
+  "last_checked_at": "2026-10-01T20:14:23+00:00",
+  "last_announced_at": "2026-10-01T20:03:43.000Z",
   "recent_ids": [
+    "VenezuelaNationals2026",
+    "NatsWarmUpGanja2026",
+    "FTOTourLegnica2027",
+    "FTOTourBoleslawiec2027",
+    "FTOTourJeleniaGora2027",
+    "FTOTourWalbrzych2027",
+    "FTOTourWroclaw2027",
+    "FTOTourBrzeg2027",
+    "FTOTourOpole2027",
+    "FTOTourStrzelceOpolskie2027",
+    "FTOTourKatowice2027",
+    "AlexandriaOpen2026",
     "VERKXXII2026",
     "VERKXXI2026",
     "VERKXX2026",
@@ -491,18 +503,6 @@
     "CaminosdeGTOGuanajuato2026",
     "BigCubesMadrid2026",
     "LSCFallB2026",
-    "LSCFallA2026",
-    "HefeiSeptemberOpen2026",
-    "KarnanOpen2026",
-    "BendigoBlitz2026",
-    "WuhanCrimsonAutumn2026",
-    "WuhanGoldenAutumn2026",
-    "VinaSpring2026",
-    "HungarianAllRounder72026",
-    "NanakuliLiiOkakopaB2026",
-    "NanakuliLiiOkakopaA2026",
-    "HawaiiBigIslandFall2026",
-    "CubeFactoryAleksandrow2026",
-    "AstanaNonCube2026"
+    "LSCFallA2026"
   ]
 }
