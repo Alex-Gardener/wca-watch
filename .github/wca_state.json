@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-02T06:02:32+00:00",
-  "last_announced_at": "2026-10-02T02:52:54.000Z",
+  "last_checked_at": "2026-10-02T13:02:29+00:00",
+  "last_announced_at": "2026-10-02T11:20:37.000Z",
   "recent_ids": [
+    "FTOpenPerth2027",
+    "VinnytsiaNovemberDays2026",
     "UtahIceCubing2027",
     "UtahSnowballBash2026",
     "FTOpenUtah2027",
@@ -501,8 +503,6 @@
     "CliffsideCubingBillings2026",
     "VisayasChampionship2026",
     "TurnUpCanberra2026",
-    "LATwistgiving2026",
-    "VltavaCubeOctober2026",
-    "CiudadBlancaIbarra2026"
+    "LATwistgiving2026"
   ]
 }
