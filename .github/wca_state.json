@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-01T20:14:23+00:00",
-  "last_announced_at": "2026-10-01T20:03:43.000Z",
+  "last_checked_at": "2026-10-02T06:02:32+00:00",
+  "last_announced_at": "2026-10-02T02:52:54.000Z",
   "recent_ids": [
+    "UtahIceCubing2027",
+    "UtahSnowballBash2026",
+    "FTOpenUtah2027",
+    "MITFall2026",
     "VenezuelaNationals2026",
     "NatsWarmUpGanja2026",
     "FTOTourLegnica2027",
@@ -499,10 +503,6 @@
     "TurnUpCanberra2026",
     "LATwistgiving2026",
     "VltavaCubeOctober2026",
-    "CiudadBlancaIbarra2026",
-    "CaminosdeGTOGuanajuato2026",
-    "BigCubesMadrid2026",
-    "LSCFallB2026",
-    "LSCFallA2026"
+    "CiudadBlancaIbarra2026"
   ]
 }
