@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-03T01:48:50+00:00",
-  "last_announced_at": "2026-10-03T00:12:24.000Z",
+  "last_checked_at": "2026-10-03T07:50:40+00:00",
+  "last_announced_at": "2026-10-03T03:19:20.000Z",
   "recent_ids": [
+    "IIAquaticoAclimacao2026",
     "VegasSpeedcubin2026",
     "MadisonWinter2027",
     "SonoranSideEvents2026",
@@ -502,7 +503,6 @@
     "MiniGuildfordinOlomouc2026",
     "ThailandChampionship2026",
     "AdelaideSummer2027",
-    "SydneyCubingDecathlon2026",
-    "NYBigQuietChampionship2026"
+    "SydneyCubingDecathlon2026"
   ]
 }
