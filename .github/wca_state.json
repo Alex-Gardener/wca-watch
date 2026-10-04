@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-04T11:14:09+00:00",
-  "last_announced_at": "2026-10-04T08:09:21.000Z",
+  "last_checked_at": "2026-10-04T22:28:59+00:00",
+  "last_announced_at": "2026-10-04T20:20:54.000Z",
   "recent_ids": [
+    "GrazFTO2027",
+    "DontDNFDallas2026",
+    "HvidovreJulecubing2026",
     "SingaporeTwoDayDec2026",
     "UCSDWeeknightsX2026",
     "IISERKolkataAutumnOpen2026",
@@ -500,9 +503,6 @@
     "VltavaFMCWinter2026",
     "VltavaCubeBigCubes2027",
     "VltavaCubeSprints2027",
-    "VERKXVII2026",
-    "VltavaCubeNovember2026",
-    "DreilandereckOpen2026",
-    "AvenidaChileXXXVII2026"
+    "VERKXVII2026"
   ]
 }
