@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-05T07:34:13+00:00",
-  "last_announced_at": "2026-10-05T01:41:10.000Z",
+  "last_checked_at": "2026-10-05T16:59:30+00:00",
+  "last_announced_at": "2026-10-05T15:36:14.000Z",
   "recent_ids": [
+    "MakatiBigCubesOpen2026",
+    "OberliNxNII2026",
     "GreenOHFall2026",
     "CostaRicaNationals2026",
     "GrazFTO2027",
@@ -501,8 +503,6 @@
     "AustrianNationals2026",
     "SanJosenoSkewbSeptember2026",
     "StJohnsFall2026",
-    "MeathForMegaSpeed2026",
-    "VltavaFMCWinter2026",
-    "VltavaCubeBigCubes2027"
+    "MeathForMegaSpeed2026"
   ]
 }
