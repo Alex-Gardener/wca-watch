@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-05T23:07:53+00:00",
-  "last_announced_at": "2026-10-05T20:58:38.000Z",
+  "last_checked_at": "2026-10-06T10:41:21+00:00",
+  "last_announced_at": "2026-10-06T04:57:55.000Z",
   "recent_ids": [
+    "CubiculusDhaka2026",
+    "DonArmandoCubosMDQ2026",
+    "ShhhSeattleFall2026",
     "WLSListopad2026",
     "QuietAzerbaijanNationals2026",
     "AzerbaijanNationals2026",
@@ -500,9 +503,6 @@
     "CubeDaysatSEK2026",
     "GeorgiaSeptemberOpen2026",
     "PerthFavouritesEveningII2026",
-    "BunburysSpeedsolving2026",
-    "RichmondClockClash2026",
-    "USIPRaceCBBA2026",
-    "AustrianNationals2026"
+    "BunburysSpeedsolving2026"
   ]
 }
