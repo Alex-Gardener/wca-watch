@@ -1,9 +1,16 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-06T10:41:21+00:00",
-  "last_announced_at": "2026-10-06T04:57:55.000Z",
+  "last_checked_at": "2026-10-06T17:05:56+00:00",
+  "last_announced_at": "2026-10-06T15:55:36.000Z",
   "recent_ids": [
+    "PreNacionalCbba2026",
+    "BulgarianNationals2026",
+    "IxellesOpen2026",
+    "GuildfordFTODayOne2027",
+    "AirdrieFTODayOne2027",
+    "ManchesterFTODayOne2027",
+    "BanjarmasinCubeDay2027",
     "CubiculusDhaka2026",
     "DonArmandoCubosMDQ2026",
     "ShhhSeattleFall2026",
@@ -496,13 +503,6 @@
     "HongKongCubeDay2026",
     "HiLITECubeOpen2026",
     "XianOneMoreClock2026",
-    "CanberraSpringOpen2026",
-    "FosterCityMiniI2026",
-    "GATechTuesdayTinyII2026",
-    "GACubersBananaScramble2026",
-    "CubeDaysatSEK2026",
-    "GeorgiaSeptemberOpen2026",
-    "PerthFavouritesEveningII2026",
-    "BunburysSpeedsolving2026"
+    "CanberraSpringOpen2026"
   ]
 }
