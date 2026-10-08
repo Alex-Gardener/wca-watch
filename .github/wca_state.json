@@ -1,9 +1,20 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-08T14:48:56+00:00",
-  "last_announced_at": "2026-10-08T11:38:53.000Z",
+  "last_checked_at": "2026-10-08T20:35:41+00:00",
+  "last_announced_at": "2026-10-08T19:14:46.000Z",
   "recent_ids": [
+    "SidesBahiaX2026",
+    "BignBlindFinprov2026",
+    "ShenyangWinterLeague3x3III2026",
+    "ShenyangWinterLeague3x3II2026",
+    "ShenyangWinterLeague3x3I2026",
+    "FiveBlindGrindPhaseThreeBarg2026",
+    "FiveBlindinTashkentPhaseFour2026",
+    "ForcaTotalaoOctaedroSBC2027",
+    "GreatLakesChampionship2027",
+    "HeartlandChampionship2027",
+    "SideQuestsIstanbul2026",
     "HanoiChessNCube2026",
     "FridayThe13thSkewbIsrael2026",
     "VarazdinOpen2026",
@@ -492,17 +503,6 @@
     "SumgaitFallOpen2026",
     "AstanaNxNxN2026",
     "ODUBigBlueFall2026",
-    "PlymouthAutumn2026",
-    "RioExxcubeOpen2026",
-    "BalamCubesBekasiComeback2026",
-    "ShhherbornSummer2026",
-    "MaineFall2026",
-    "TacomaFall2026",
-    "Uppsalaligan2Tricky2026",
-    "IIINovaCarapinaOpen2026",
-    "TwistFestPune2026",
-    "RoadtoNatsMaracayII2026",
-    "KukulcanQuetzaltenango2026",
-    "TokyoAutumn2026"
+    "PlymouthAutumn2026"
   ]
 }
