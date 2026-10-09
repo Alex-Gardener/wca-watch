@@ -1,9 +1,15 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-08T20:35:41+00:00",
-  "last_announced_at": "2026-10-08T19:14:46.000Z",
+  "last_checked_at": "2026-10-09T07:53:09+00:00",
+  "last_announced_at": "2026-10-09T07:32:38.000Z",
   "recent_ids": [
+    "FosterCityMiniII2026",
+    "LElianaOpen2026",
+    "GemCityAirplaneMode2026",
+    "CubingOxford2026",
+    "ItalianQuietChampionship2026",
+    "HongKongChampionship2026",
     "SidesBahiaX2026",
     "BignBlindFinprov2026",
     "ShenyangWinterLeague3x3III2026",
@@ -497,12 +503,6 @@
     "KublordagJonkopingXIV2027",
     "DobrejoviceSpecial2027",
     "Dobrejovice4BLDMadness2027",
-    "DobrejoviceSquockExtreme2027",
-    "KublordagJonkopingXIII2026",
-    "DobrejoviceNxN2027",
-    "SumgaitFallOpen2026",
-    "AstanaNxNxN2026",
-    "ODUBigBlueFall2026",
-    "PlymouthAutumn2026"
+    "DobrejoviceSquockExtreme2027"
   ]
 }
