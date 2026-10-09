@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-09T07:53:09+00:00",
-  "last_announced_at": "2026-10-09T07:32:38.000Z",
+  "last_checked_at": "2026-10-09T20:16:10+00:00",
+  "last_announced_at": "2026-10-09T17:27:53.000Z",
   "recent_ids": [
+    "GemCityTrianglesOH2026",
+    "CubeMoreinArdmore2026",
     "FosterCityMiniII2026",
     "LElianaOpen2026",
     "GemCityAirplaneMode2026",
@@ -501,8 +503,6 @@
     "OtsuBiwakoAutumn2026",
     "HoneyCubeBarcin2026",
     "KublordagJonkopingXIV2027",
-    "DobrejoviceSpecial2027",
-    "Dobrejovice4BLDMadness2027",
-    "DobrejoviceSquockExtreme2027"
+    "DobrejoviceSpecial2027"
   ]
 }
