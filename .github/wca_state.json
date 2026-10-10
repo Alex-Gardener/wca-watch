@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-10T12:56:24+00:00",
-  "last_announced_at": "2026-10-10T11:46:21.000Z",
+  "last_checked_at": "2026-10-10T21:24:47+00:00",
+  "last_announced_at": "2026-10-10T21:08:30.000Z",
   "recent_ids": [
+    "WinningatWeiss2026",
     "LosFuertesV3Puebla2026",
     "CSUSanMarcosCubingOpen2026",
     "Singapore4PadFTO2027",
@@ -502,7 +503,6 @@
     "TexasFMCChampionship2026",
     "TXMBLDChampsDFW2026",
     "TXMBLDChampsAustin2026",
-    "BimaalCuboVBogota2026",
-    "UNICAMPCube2026"
+    "BimaalCuboVBogota2026"
   ]
 }
