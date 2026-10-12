@@ -1,9 +1,15 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-12T08:54:28+00:00",
-  "last_announced_at": "2026-10-12T07:41:27.000Z",
+  "last_checked_at": "2026-10-12T18:48:52+00:00",
+  "last_announced_at": "2026-10-12T18:44:01.000Z",
   "recent_ids": [
+    "KenyaNationals2026",
+    "IIUMEGPOpen2026",
+    "NanchangWinter2026",
+    "NedlandsSummer2027",
+    "SacQuietWinter2027",
+    "SacCubingXXV2027",
     "ThankscubingNY2026",
     "DobbsFerryDecathlon2026",
     "SuperDuperSanDiego2027",
@@ -497,12 +503,6 @@
     "CubebersinIloilo2026",
     "Tokyo2026",
     "DavisHalloweenParty2026",
-    "IndianEliteChampionship2026",
-    "MakatiSpeedcubingOpenIX2026",
-    "PocosCuposBogotaXXIX2026",
-    "FMCEastMelbourne2026",
-    "RetoFinalesAvesMaria2026",
-    "NCSUWolfpackFall2026",
-    "ColoradoCubingWeekend2026"
+    "IndianEliteChampionship2026"
   ]
 }
