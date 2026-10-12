@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-11T22:20:07+00:00",
-  "last_announced_at": "2026-10-11T20:31:41.000Z",
+  "last_checked_at": "2026-10-12T08:54:28+00:00",
+  "last_announced_at": "2026-10-12T07:41:27.000Z",
   "recent_ids": [
+    "ThankscubingNY2026",
+    "DobbsFerryDecathlon2026",
     "SuperDuperSanDiego2027",
     "FMCundertheMistletoe2026",
     "ThankscubingQuietNY2026",
@@ -501,8 +503,6 @@
     "FMCEastMelbourne2026",
     "RetoFinalesAvesMaria2026",
     "NCSUWolfpackFall2026",
-    "ColoradoCubingWeekend2026",
-    "HUNbelievableChallengeBSB2026",
-    "SedgefieldChallenge2026"
+    "ColoradoCubingWeekend2026"
   ]
 }
