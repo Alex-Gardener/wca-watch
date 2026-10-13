@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-13T16:18:54+00:00",
-  "last_announced_at": "2026-10-13T16:00:11.000Z",
+  "last_checked_at": "2026-10-13T21:27:52+00:00",
+  "last_announced_at": "2026-10-13T20:29:39.000Z",
   "recent_ids": [
+    "GuangzhouQuietDay2026",
     "SouthernChampionship2027",
     "LishuiOpen2026",
     "IndianPBQChampionship2026",
@@ -502,7 +503,6 @@
     "FMCSpanishChampionship2026",
     "OldhamCountyWinter2027",
     "BundnerOpen2026",
-    "GeorgiaSeptember2026",
-    "CharenteOpen2026"
+    "GeorgiaSeptember2026"
   ]
 }
