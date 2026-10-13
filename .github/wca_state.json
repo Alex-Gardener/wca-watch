@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-12T18:48:52+00:00",
-  "last_announced_at": "2026-10-12T18:44:01.000Z",
+  "last_checked_at": "2026-10-13T08:16:58+00:00",
+  "last_announced_at": "2026-10-13T06:58:43.000Z",
   "recent_ids": [
+    "CaloocanCubeOpenI2026",
+    "SecretHwawon2026",
     "KenyaNationals2026",
     "IIUMEGPOpen2026",
     "NanchangWinter2026",
@@ -501,8 +503,6 @@
     "Stockholmsligan3Marke2026",
     "CubeandoenRioGuadalajara2026",
     "CubebersinIloilo2026",
-    "Tokyo2026",
-    "DavisHalloweenParty2026",
-    "IndianEliteChampionship2026"
+    "Tokyo2026"
   ]
 }
