@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-14T16:54:16+00:00",
-  "last_announced_at": "2026-10-14T16:35:40.000Z",
+  "last_checked_at": "2026-10-14T20:31:37+00:00",
+  "last_announced_at": "2026-10-14T18:45:32.000Z",
   "recent_ids": [
+    "WJPermsPA2026",
+    "GLSGdanskVII2026",
     "AmsTurnDam2026",
     "DelhiNovemberCubeOpen2026",
     "EarlySunsetsMonroeville2027",
@@ -501,8 +503,6 @@
     "UNSASpeedcubingOtonoII2026",
     "RoadtoNatsCaracasII2026",
     "RoadtoNatsCaracas2026",
-    "MartinsvilleMinisBigCubes2026",
-    "IndianFMCChampionship2026",
-    "FMCSpanishChampionship2026"
+    "MartinsvilleMinisBigCubes2026"
   ]
 }
