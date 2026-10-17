@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-17T04:52:54+00:00",
-  "last_announced_at": "2026-10-17T01:24:26.000Z",
+  "last_checked_at": "2026-10-17T16:36:34+00:00",
+  "last_announced_at": "2026-10-17T16:00:26.000Z",
   "recent_ids": [
+    "KamppiCubeWeekend2026",
+    "NorthDakotaAeroCubers2027",
+    "KantoFMC2026",
+    "DCHydCubeOpenNovember2026",
+    "FTOIceBreakerMinnesota2027",
     "BuchoOpenHonduras2026",
     "CuboemEtapasVilaVelha2026",
     "CatskillsFall2026",
@@ -498,11 +503,6 @@
     "VietnamFMCChampionship2026",
     "RocklandRounds2026",
     "RocklandRookies2026",
-    "PennCubeDayFall2026",
-    "4x4at4inPrague2026",
-    "CubingWithTheCropsMD2026",
-    "BengalCubeOpen2026",
-    "TurnBacktheClockMiami2026",
-    "LesHeraultdeClaretOpen2026"
+    "PennCubeDayFall2026"
   ]
 }
