@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-20T06:25:32+00:00",
-  "last_announced_at": "2026-10-20T04:06:35.000Z",
+  "last_checked_at": "2026-10-20T11:58:34+00:00",
+  "last_announced_at": "2026-10-20T08:38:37.000Z",
   "recent_ids": [
+    "NoPlaceLikeKansas2026",
     "DFWWeeknights52026",
     "WLSListopadII2026",
     "UCSDPBQ2026",
@@ -502,7 +503,6 @@
     "DesafioHungriaemSP2026",
     "CuberBrasilSumare2026",
     "MedellinExplora2026",
-    "LopesUpAZFall2026",
-    "NortheastArkansasWinter2027"
+    "LopesUpAZFall2026"
   ]
 }
