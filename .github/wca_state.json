@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-21T07:20:30+00:00",
-  "last_announced_at": "2026-10-21T06:40:10.000Z",
+  "last_checked_at": "2026-10-21T13:06:33+00:00",
+  "last_announced_at": "2026-10-21T08:50:23.000Z",
   "recent_ids": [
+    "LarchmontTGIFII2026",
     "FTODebutinRichmond2027",
     "PolishChampionship2026",
     "ManhattanMatineeFavorites2026",
@@ -502,7 +503,6 @@
     "GACubersParkBeQuiet2026",
     "CarmonaOpen2026",
     "TrondheimHost2026",
-    "NorwegianFMChampionship2026",
-    "TramshedsXINovemberSun2026"
+    "NorwegianFMChampionship2026"
   ]
 }
