@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-21T13:06:33+00:00",
-  "last_announced_at": "2026-10-21T08:50:23.000Z",
+  "last_checked_at": "2026-10-21T21:54:56+00:00",
+  "last_announced_at": "2026-10-21T19:56:09.000Z",
   "recent_ids": [
+    "ViadelMarCubing2026",
+    "HappyNewYearHillister2027",
+    "CapeTownWaterfrontWeekend2026",
+    "VERKXXIII2026",
     "LarchmontTGIFII2026",
     "FTODebutinRichmond2027",
     "PolishChampionship2026",
@@ -499,10 +503,6 @@
     "PrimmaCubeOpen2026",
     "SeattleMiniB2026",
     "SeattleMiniA2026",
-    "ZottegemOpen2026",
-    "GACubersParkBeQuiet2026",
-    "CarmonaOpen2026",
-    "TrondheimHost2026",
-    "NorwegianFMChampionship2026"
+    "ZottegemOpen2026"
   ]
 }
