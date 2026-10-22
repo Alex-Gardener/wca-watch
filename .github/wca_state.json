@@ -1,9 +1,17 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-22T00:31:27+00:00",
-  "last_announced_at": "2026-10-22T00:28:18.000Z",
+  "last_checked_at": "2026-10-22T16:00:20+00:00",
+  "last_announced_at": "2026-10-22T13:18:45.000Z",
   "recent_ids": [
+    "LancasterWinter2027",
+    "NxNNewYearinLugano2026",
+    "ClockFTOinLugano2027",
+    "LasNacionalesdeGuatemala2026",
+    "3x3InSanDiegoC2026",
+    "3x3InSanDiegoB2026",
+    "3x3InSanDiegoA2026",
+    "EcijaOpen2027",
     "ItalianChampionship2026",
     "GeorgetownUnofficialDay2027",
     "ViadelMarCubing2026",
@@ -495,14 +503,6 @@
     "FacaMaispelasCriancas2026",
     "PBQSingaporeOct2026",
     "IdahoSpudcubingIII2026",
-    "CubingintheRain2027",
-    "IdahoSpookySpeedsolving2026",
-    "RioGrandeTDF2026",
-    "UnionBolivarianaOpenTJA2026",
-    "SeattleFMCandBigCubes2026",
-    "FSUbers1202026",
-    "FTOinVersoix2027",
-    "PrimmaCubeOpen2026",
-    "SeattleMiniB2026"
+    "CubingintheRain2027"
   ]
 }
