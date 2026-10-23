@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-22T23:15:12+00:00",
-  "last_announced_at": "2026-10-22T20:39:51.000Z",
+  "last_checked_at": "2026-10-23T12:47:28+00:00",
+  "last_announced_at": "2026-10-23T12:01:30.000Z",
   "recent_ids": [
+    "LittleCubesinBacolod2026",
     "BowlingGreenSpring2027",
     "NewProvidenceWinterPM2027",
     "NewProvidenceWinterAM2027",
@@ -502,7 +503,6 @@
     "MiddleGeorgiaFallFrenzy2026",
     "3x3sButNo3x3inNepal2026",
     "MomiasQuintoOpen2026",
-    "PBFBrisbane2026",
-    "BrisbaneFinnishAfternoon2026"
+    "PBFBrisbane2026"
   ]
 }
