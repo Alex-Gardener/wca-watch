@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-24T13:30:58+00:00",
-  "last_announced_at": "2026-10-24T10:11:09.000Z",
+  "last_checked_at": "2026-10-24T17:16:58+00:00",
+  "last_announced_at": "2026-10-24T17:12:04.000Z",
   "recent_ids": [
+    "KingofPrussiaFavorites2027",
+    "UberlandiaOpen2026",
     "ChillininChesterton2026",
     "RiverHillFall2026",
     "BiascaSunset2026",
@@ -501,8 +503,6 @@
     "CheckingoffVermont2026",
     "NextGenCubePotosi2026",
     "AarhusFall2026",
-    "BalticSkewbFestGdansk2026",
-    "YubaCityFall2026",
-    "JaquealCuboLP2026"
+    "BalticSkewbFestGdansk2026"
   ]
 }
