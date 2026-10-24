@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-23T17:48:17+00:00",
-  "last_announced_at": "2026-10-23T15:53:29.000Z",
+  "last_checked_at": "2026-10-24T13:30:58+00:00",
+  "last_announced_at": "2026-10-24T10:11:09.000Z",
   "recent_ids": [
+    "ChillininChesterton2026",
+    "RiverHillFall2026",
     "BiascaSunset2026",
     "NxNebraska2026",
     "LittleCubesinBacolod2026",
@@ -501,8 +503,6 @@
     "AarhusFall2026",
     "BalticSkewbFestGdansk2026",
     "YubaCityFall2026",
-    "JaquealCuboLP2026",
-    "MiddleGeorgiaFallFrenzy2026",
-    "3x3sButNo3x3inNepal2026"
+    "JaquealCuboLP2026"
   ]
 }
