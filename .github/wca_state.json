@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-24T17:16:58+00:00",
-  "last_announced_at": "2026-10-24T17:12:04.000Z",
+  "last_checked_at": "2026-10-25T18:17:08+00:00",
+  "last_announced_at": "2026-10-25T17:56:52.000Z",
   "recent_ids": [
+    "CubeXWinterOpenBengaluru2026",
     "KingofPrussiaFavorites2027",
     "UberlandiaOpen2026",
     "ChillininChesterton2026",
@@ -502,7 +503,6 @@
     "RubisianAutumnCubingIasi2026",
     "CheckingoffVermont2026",
     "NextGenCubePotosi2026",
-    "AarhusFall2026",
-    "BalticSkewbFestGdansk2026"
+    "AarhusFall2026"
   ]
 }
