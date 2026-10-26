@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-26T07:37:03+00:00",
-  "last_announced_at": "2026-10-26T07:16:01.000Z",
+  "last_checked_at": "2026-10-26T15:01:10+00:00",
+  "last_announced_at": "2026-10-26T13:47:23.000Z",
   "recent_ids": [
+    "EspritCubizarreAnglet2027",
+    "LatvijasKlusaisCempionats2026",
+    "SwisscubingCupFinal2026",
+    "ThailandQuietChampionship2026",
     "LatvijasCempionats2026",
     "VeniVidiVellmar2026",
     "CubeXWinterOpenBengaluru2026",
@@ -499,10 +503,6 @@
     "UCCanterburyOpen2026",
     "HazletFall2026",
     "BoliviaNationals2026",
-    "LegazpiMultiDays2026",
-    "ProyeccionSocialUDIV2026",
-    "GoianiaXiu2026",
-    "RubisianAutumnCubingIasi2026",
-    "CheckingoffVermont2026"
+    "LegazpiMultiDays2026"
   ]
 }
