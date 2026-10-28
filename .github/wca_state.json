@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-28T00:21:44+00:00",
-  "last_announced_at": "2026-10-28T00:01:53.000Z",
+  "last_checked_at": "2026-10-28T13:24:42+00:00",
+  "last_announced_at": "2026-10-28T09:07:47.000Z",
   "recent_ids": [
+    "BUBTWinterOpen2026",
     "Cube4funSantaBelchatow2026",
     "MagnoliaStateWinter2027",
     "MasterCubeSalvadorX2026",
@@ -502,7 +503,6 @@
     "SchwerinOpen2027",
     "CampeonatoBrasileiroFMC2026",
     "TorontoWeeknightsI2026",
-    "AlgsinAnkeny2026",
-    "CubingSkillsinAlmaty2026"
+    "AlgsinAnkeny2026"
   ]
 }
