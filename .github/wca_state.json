@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-30T08:22:47+00:00",
-  "last_announced_at": "2026-10-30T06:52:52.000Z",
+  "last_checked_at": "2026-10-30T15:13:46+00:00",
+  "last_announced_at": "2026-10-30T12:06:39.000Z",
   "recent_ids": [
+    "StevenageJanuary2027",
+    "GlasgowOpen2027",
+    "GlasgowBeginners2027",
     "DongguanDecade2026",
     "KaohsiungAutumnOpen2026",
     "NewYorkNewYearWelcome2027",
@@ -500,9 +503,6 @@
     "SpokaneFall2026",
     "TakeYourTimeAdelaide2026",
     "NacionalesArgentinasSDE2026",
-    "SESISantos2026",
-    "FTOpenCranbourne2027",
-    "ToysImpactHagondange2026",
-    "UMBCFall2026"
+    "SESISantos2026"
   ]
 }
