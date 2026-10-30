@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-30T01:44:58+00:00",
-  "last_announced_at": "2026-10-30T01:42:26.000Z",
+  "last_checked_at": "2026-10-30T08:22:47+00:00",
+  "last_announced_at": "2026-10-30T06:52:52.000Z",
   "recent_ids": [
+    "DongguanDecade2026",
+    "KaohsiungAutumnOpen2026",
+    "NewYorkNewYearWelcome2027",
+    "NewYorkNewYearFarewell2026",
     "LarchmontLeftovers2026",
     "MiniBlindCanelas2026",
     "FTOiAalborg2027",
@@ -499,10 +503,6 @@
     "SESISantos2026",
     "FTOpenCranbourne2027",
     "ToysImpactHagondange2026",
-    "UMBCFall2026",
-    "RedhawkFallOH2026",
-    "NoviSadOpen2026",
-    "OkayOkcheon2026",
-    "ColegioSalesianoItajai2026"
+    "UMBCFall2026"
   ]
 }
