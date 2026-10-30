@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-29T16:47:03+00:00",
-  "last_announced_at": "2026-10-29T15:08:01.000Z",
+  "last_checked_at": "2026-10-30T01:44:58+00:00",
+  "last_announced_at": "2026-10-30T01:42:26.000Z",
   "recent_ids": [
+    "LarchmontLeftovers2026",
+    "MiniBlindCanelas2026",
+    "FTOiAalborg2027",
     "LauroaoCubo2026",
     "BrisbaneNewYearCountdown2026",
     "FTOpenBrisbane2027",
@@ -500,9 +503,6 @@
     "RedhawkFallOH2026",
     "NoviSadOpen2026",
     "OkayOkcheon2026",
-    "ColegioSalesianoItajai2026",
-    "SalonicaAutumnOpen2026",
-    "LuxembourgNationals2026",
-    "JachaCubingIILP2026"
+    "ColegioSalesianoItajai2026"
   ]
 }
