@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-10-31T05:22:32+00:00",
-  "last_announced_at": "2026-10-31T05:09:39.000Z",
+  "last_checked_at": "2026-10-31T11:05:48+00:00",
+  "last_announced_at": "2026-10-31T09:08:15.000Z",
   "recent_ids": [
+    "SaimaFarewell2026",
+    "SingaporePolyJanuary2027",
     "SaintVincentNationals2027",
     "Barbados2027",
     "WLSGrudzienII2026",
@@ -501,8 +503,6 @@
     "DeepFocusApeldoorn2026",
     "EspritCubeAngletBCBG2026",
     "NutiEstonianChampionship2026",
-    "GanOpen2026",
-    "GuangzhouGrandOpen2026",
-    "SarrigurenOpen2026"
+    "GanOpen2026"
   ]
 }
