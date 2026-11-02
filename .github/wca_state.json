@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-02T08:05:30+00:00",
-  "last_announced_at": "2026-11-02T05:19:01.000Z",
+  "last_checked_at": "2026-11-02T18:43:53+00:00",
+  "last_announced_at": "2026-11-02T17:58:03.000Z",
   "recent_ids": [
+    "MusicCitySpeedsolvingTN2027",
+    "RaleighOctahedrathon2027",
+    "HvidovreSideEvents2027",
+    "KantoWinter2027",
     "FrayBentosOpen2026",
     "FindingAnglesinEnglewood2026",
     "NagpurFTOctahedronOpen2027",
@@ -499,10 +503,6 @@
     "IvanoFrankivskOpen2026",
     "UAChalCuboValdivia2026",
     "DraCUBladeBeutre2026",
-    "FranCUBsteindeBeutre2026",
-    "FrostyFingersinDunkirk2026",
-    "CuberosdelChaco2026",
-    "IITGandhinagarCubeOpen2026",
-    "YerevanOClock2026"
+    "FranCUBsteindeBeutre2026"
   ]
 }
