@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-01T21:52:46+00:00",
-  "last_announced_at": "2026-11-01T21:27:27.000Z",
+  "last_checked_at": "2026-11-02T08:05:30+00:00",
+  "last_announced_at": "2026-11-02T05:19:01.000Z",
   "recent_ids": [
+    "FrayBentosOpen2026",
     "FindingAnglesinEnglewood2026",
     "NagpurFTOctahedronOpen2027",
     "OtepaaOpen2026",
@@ -502,7 +503,6 @@
     "FrostyFingersinDunkirk2026",
     "CuberosdelChaco2026",
     "IITGandhinagarCubeOpen2026",
-    "YerevanOClock2026",
-    "ElkGroveFall2026"
+    "YerevanOClock2026"
   ]
 }
