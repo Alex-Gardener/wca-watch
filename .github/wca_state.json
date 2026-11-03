@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-02T18:43:53+00:00",
-  "last_announced_at": "2026-11-02T17:58:03.000Z",
+  "last_checked_at": "2026-11-03T01:28:49+00:00",
+  "last_announced_at": "2026-11-03T00:07:05.000Z",
   "recent_ids": [
+    "DontDNFDobbsFerry2026",
+    "ValerengaVinterB2027",
+    "ValerengaVinterA2027",
+    "Edinburgh5x5Day2027",
     "MusicCitySpeedsolvingTN2027",
     "RaleighOctahedrathon2027",
     "HvidovreSideEvents2027",
@@ -499,10 +503,6 @@
     "KjellerOpen2026",
     "TenerifeOpen2026",
     "HeadtoUBCAfternoon2026",
-    "HeadtoUBCMorning2026",
-    "IvanoFrankivskOpen2026",
-    "UAChalCuboValdivia2026",
-    "DraCUBladeBeutre2026",
-    "FranCUBsteindeBeutre2026"
+    "HeadtoUBCMorning2026"
   ]
 }
