@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-03T16:54:43+00:00",
-  "last_announced_at": "2026-11-03T08:52:22.000Z",
+  "last_checked_at": "2026-11-03T22:14:23+00:00",
+  "last_announced_at": "2026-11-03T21:24:23.000Z",
   "recent_ids": [
+    "PleaseBeQuietBergen2026",
+    "GLSGdanskFinal2026",
     "DelhiDecemberCubeOpen2026",
     "UCLABruiNxN2027",
     "PanamaNationals2026",
@@ -501,8 +503,6 @@
     "LateinLarchmontII2026",
     "PopularnBlindUppsala2026",
     "NewcastleBBO2026",
-    "AvenidaChileXXXVIII2026",
-    "WembleyQuimbayaIV2026",
-    "PuertoRealCamaleonOpen2026"
+    "AvenidaChileXXXVIII2026"
   ]
 }
