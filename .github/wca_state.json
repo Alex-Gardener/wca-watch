@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-04T10:41:40+00:00",
-  "last_announced_at": "2026-11-04T06:00:41.000Z",
+  "last_checked_at": "2026-11-04T18:31:24+00:00",
+  "last_announced_at": "2026-11-04T18:16:50.000Z",
   "recent_ids": [
+    "ThailandFTONewYear2027",
+    "OahuFTOaMakapo2027",
+    "CubeAgainstCancerHawaii2027",
+    "HangzhouWinter2026",
     "NaGuaraMetropolisLara2026",
     "MelbourneSummer2027",
     "TorontoBlindfolded2026",
@@ -499,10 +503,6 @@
     "IndonesianChampionship2026",
     "SwissScienceOpen2026",
     "CubeorTreatNE2026",
-    "MasterCubeHCMC2026",
-    "Cube4funLublinAutumn2026",
-    "DerwoodCubingDerbyFall2026",
-    "Cube4funZyrardow2026",
-    "LateinLarchmontII2026"
+    "MasterCubeHCMC2026"
   ]
 }
