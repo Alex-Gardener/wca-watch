@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-04T18:31:24+00:00",
-  "last_announced_at": "2026-11-04T18:16:50.000Z",
+  "last_checked_at": "2026-11-05T00:13:59+00:00",
+  "last_announced_at": "2026-11-04T23:23:52.000Z",
   "recent_ids": [
+    "FelizNavidadCuenca2026",
+    "MSaoCubo2026",
+    "CebuBlindSided2027",
     "ThailandFTONewYear2027",
     "OahuFTOaMakapo2027",
     "CubeAgainstCancerHawaii2027",
@@ -500,9 +503,6 @@
     "HalloweenenlaDiTella2026",
     "InTentsCubingAnzaBorrego2026",
     "FTOinNewcastle2027",
-    "IndonesianChampionship2026",
-    "SwissScienceOpen2026",
-    "CubeorTreatNE2026",
-    "MasterCubeHCMC2026"
+    "IndonesianChampionship2026"
   ]
 }
