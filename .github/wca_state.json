@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-06T17:16:16+00:00",
-  "last_announced_at": "2026-11-06T16:31:30.000Z",
+  "last_checked_at": "2026-11-06T22:16:11+00:00",
+  "last_announced_at": "2026-11-06T18:25:34.000Z",
   "recent_ids": [
+    "ChampionnatQCSilencieux2026",
+    "OneDayCubingCDMX2027",
     "DevonWinter2027",
     "CanamaresOpen2027",
     "GodolloFTOpen2027",
@@ -501,8 +503,6 @@
     "CardiffNovember2026",
     "AigleNoir2026",
     "CaviteSpeedcubingOpenXIV2026",
-    "SidesBahia2026",
-    "PartageOpen2026",
-    "BaguioSpeedcubingOpen2026"
+    "SidesBahia2026"
   ]
 }
