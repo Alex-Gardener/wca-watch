@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-06T09:43:26+00:00",
-  "last_announced_at": "2026-11-06T08:23:55.000Z",
+  "last_checked_at": "2026-11-06T17:16:16+00:00",
+  "last_announced_at": "2026-11-06T16:31:30.000Z",
   "recent_ids": [
+    "DevonWinter2027",
+    "CanamaresOpen2027",
+    "GodolloFTOpen2027",
+    "HungarianAllRounder102026",
+    "KoreanChampionship2026",
     "ChateauThebaudOpen2026",
     "VERKXXIV2026",
     "IIICubodeBarroES2026",
@@ -498,11 +503,6 @@
     "CaviteSpeedcubingOpenXIV2026",
     "SidesBahia2026",
     "PartageOpen2026",
-    "BaguioSpeedcubingOpen2026",
-    "Stockholmsligan4Smash2026",
-    "HongKongAutumnCubeDay2026",
-    "BelmontFTO2027",
-    "DosquebradasII2026",
-    "NewmarketSideEvents2026"
+    "BaguioSpeedcubingOpen2026"
   ]
 }
