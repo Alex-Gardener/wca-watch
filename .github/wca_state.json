@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-06T22:16:11+00:00",
-  "last_announced_at": "2026-11-06T18:25:34.000Z",
+  "last_checked_at": "2026-11-07T02:15:07+00:00",
+  "last_announced_at": "2026-11-07T00:29:05.000Z",
   "recent_ids": [
+    "CACEdgemont2026",
     "ChampionnatQCSilencieux2026",
     "OneDayCubingCDMX2027",
     "DevonWinter2027",
@@ -502,7 +503,6 @@
     "SingaporeMegaNovember2026",
     "CardiffNovember2026",
     "AigleNoir2026",
-    "CaviteSpeedcubingOpenXIV2026",
-    "SidesBahia2026"
+    "CaviteSpeedcubingOpenXIV2026"
   ]
 }
