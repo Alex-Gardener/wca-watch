@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-07T23:49:48+00:00",
-  "last_announced_at": "2026-11-07T22:54:44.000Z",
+  "last_checked_at": "2026-11-08T05:27:47+00:00",
+  "last_announced_at": "2026-11-08T01:07:28.000Z",
   "recent_ids": [
+    "VinterkubingVitenfabrikken2027",
     "SandnesWinter2027",
     "PloiestiCubing2026",
     "Cube4funSantaLublin2026",
@@ -502,7 +503,6 @@
     "BLDRigasligaI2026",
     "BLDRigasligaII2026",
     "BLDRigasligaIII2026",
-    "MegaGameRigaOpenII2026",
-    "CubeathonBengaluru2026"
+    "MegaGameRigaOpenII2026"
   ]
 }
