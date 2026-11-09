@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-09T01:51:37+00:00",
-  "last_announced_at": "2026-11-08T23:41:38.000Z",
+  "last_checked_at": "2026-11-09T19:59:00+00:00",
+  "last_announced_at": "2026-11-09T12:40:13.000Z",
   "recent_ids": [
+    "BernFTONight2027",
     "KCKC11BigandAwkward2027",
     "TicTacAcropolisXmas2026",
     "VinterkubingVitenfabrikken2027",
@@ -502,7 +503,6 @@
     "KaisaniemiCubing2026",
     "VERKXIX2026",
     "BLDRigasligaIV2027",
-    "BLDRigasligaI2026",
-    "BLDRigasligaII2026"
+    "BLDRigasligaI2026"
   ]
 }
