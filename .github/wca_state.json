@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-10T18:32:05+00:00",
-  "last_announced_at": "2026-11-10T11:58:21.000Z",
+  "last_checked_at": "2026-11-10T23:57:11+00:00",
+  "last_announced_at": "2026-11-10T21:24:21.000Z",
   "recent_ids": [
+    "ElVellonOpen2027",
+    "FTOntario2027",
+    "SanGilPlazaXmas2026",
     "PenangNicheDual2026",
     "KoreanQuietChampionship2026",
     "UlaanbaatarWinter2026",
@@ -500,9 +503,6 @@
     "JordanNationals2026",
     "CAUaoCubo2026",
     "FTOregon2027",
-    "GLSGdanskVI2026",
-    "OrebroOpen2026",
-    "IISERPuneOctoberHeat2026",
-    "ZarasaiAutumnOpen2026"
+    "GLSGdanskVI2026"
   ]
 }
