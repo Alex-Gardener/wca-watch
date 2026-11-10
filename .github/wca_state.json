@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-10T10:54:18+00:00",
-  "last_announced_at": "2026-11-10T07:45:55.000Z",
+  "last_checked_at": "2026-11-10T18:32:05+00:00",
+  "last_announced_at": "2026-11-10T11:58:21.000Z",
   "recent_ids": [
+    "PenangNicheDual2026",
     "KoreanQuietChampionship2026",
     "UlaanbaatarWinter2026",
     "MegaSaturdayGdansk2026",
@@ -502,7 +503,6 @@
     "GLSGdanskVI2026",
     "OrebroOpen2026",
     "IISERPuneOctoberHeat2026",
-    "ZarasaiAutumnOpen2026",
-    "UnidaviaoCubo2026"
+    "ZarasaiAutumnOpen2026"
   ]
 }
