@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-10T23:57:11+00:00",
-  "last_announced_at": "2026-11-10T21:24:21.000Z",
+  "last_checked_at": "2026-11-11T13:55:34+00:00",
+  "last_announced_at": "2026-11-11T09:38:38.000Z",
   "recent_ids": [
+    "CampeonatoAmazonense2026",
+    "CanberraSummerOpen2027",
+    "CTMastersWinter2027",
+    "FTOpenSydney2027",
     "ElVellonOpen2027",
     "FTOntario2027",
     "SanGilPlazaXmas2026",
@@ -499,10 +503,6 @@
     "JahuGameShow2026",
     "NadaQueVerBGAIII2026",
     "VentoNegroGravatai2026",
-    "IndianaChampionship2027",
-    "JordanNationals2026",
-    "CAUaoCubo2026",
-    "FTOregon2027",
-    "GLSGdanskVI2026"
+    "IndianaChampionship2027"
   ]
 }
