@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-11T13:55:34+00:00",
-  "last_announced_at": "2026-11-11T09:38:38.000Z",
+  "last_checked_at": "2026-11-11T21:11:21+00:00",
+  "last_announced_at": "2026-11-11T18:50:05.000Z",
   "recent_ids": [
+    "FreshTurnsofSpringSTL2027",
     "CampeonatoAmazonense2026",
     "CanberraSummerOpen2027",
     "CTMastersWinter2027",
@@ -502,7 +503,6 @@
     "FoCoOpen2026",
     "JahuGameShow2026",
     "NadaQueVerBGAIII2026",
-    "VentoNegroGravatai2026",
-    "IndianaChampionship2027"
+    "VentoNegroGravatai2026"
   ]
 }
