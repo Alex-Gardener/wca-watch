@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-12T10:08:03+00:00",
-  "last_announced_at": "2026-11-12T02:52:34.000Z",
+  "last_checked_at": "2026-11-12T18:31:09+00:00",
+  "last_announced_at": "2026-11-12T13:49:37.000Z",
   "recent_ids": [
+    "BurnabyHandWarmers2027",
     "FederalWayFTO2027",
     "KublordagUppsalaVII2026",
     "FreshTurnsofSpringSTL2027",
@@ -502,7 +503,6 @@
     "RoadtoDM27Sjaelland2026",
     "CubestuffCenturionQ42026",
     "HanoiWinter2026",
-    "FoCoOpen2026",
-    "JahuGameShow2026"
+    "FoCoOpen2026"
   ]
 }
