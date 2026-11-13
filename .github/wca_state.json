@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-13T00:00:26+00:00",
-  "last_announced_at": "2026-11-12T21:13:12.000Z",
+  "last_checked_at": "2026-11-13T07:05:21+00:00",
+  "last_announced_at": "2026-11-13T03:01:39.000Z",
   "recent_ids": [
+    "MontevideoenLlamas2026",
+    "NilvangeOpen2027",
+    "AstanaDecemberOpen2026",
+    "BlindmasLandvetter2026",
+    "HarbinOpen2026",
     "JustCubeandGoPangasinan2026",
     "ConfraLigerinGoiania2026",
     "EnguasadosenNayarit2026",
@@ -498,11 +503,6 @@
     "AlbaniaOpen2026",
     "ForgetNothingRedondoBeach2027",
     "ForgetNothingRedondoBeach2026",
-    "Plattsburgh2026",
-    "FirstTimeOutinLA2027",
-    "ThuringenOpen2026",
-    "RockyFace2027",
-    "GuilinOpen2026",
-    "RoadtoDM27Sjaelland2026"
+    "Plattsburgh2026"
   ]
 }
