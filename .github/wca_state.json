@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-12T18:31:09+00:00",
-  "last_announced_at": "2026-11-12T13:49:37.000Z",
+  "last_checked_at": "2026-11-13T00:00:26+00:00",
+  "last_announced_at": "2026-11-12T21:13:12.000Z",
   "recent_ids": [
+    "JustCubeandGoPangasinan2026",
+    "ConfraLigerinGoiania2026",
+    "EnguasadosenNayarit2026",
     "BurnabyHandWarmers2027",
     "FederalWayFTO2027",
     "KublordagUppsalaVII2026",
@@ -500,9 +503,6 @@
     "ThuringenOpen2026",
     "RockyFace2027",
     "GuilinOpen2026",
-    "RoadtoDM27Sjaelland2026",
-    "CubestuffCenturionQ42026",
-    "HanoiWinter2026",
-    "FoCoOpen2026"
+    "RoadtoDM27Sjaelland2026"
   ]
 }
