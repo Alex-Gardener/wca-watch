@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-14T02:06:10+00:00",
-  "last_announced_at": "2026-11-14T01:45:32.000Z",
+  "last_checked_at": "2026-11-14T15:58:10+00:00",
+  "last_announced_at": "2026-11-14T12:47:39.000Z",
   "recent_ids": [
+    "MadridChessOpen2026",
     "DowntownDualsColumbusOH2026",
     "Stockholmsligan5Eight2026",
     "PantanalCubingMS2026",
@@ -502,7 +503,6 @@
     "DublinCASquared2026",
     "MelbourneCubeDays2026",
     "MoroccoChampionship2026",
-    "IIMossoroOpen2026",
-    "IIIsere2026"
+    "IIMossoroOpen2026"
   ]
 }
