@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-15T00:54:26+00:00",
-  "last_announced_at": "2026-11-14T21:12:52.000Z",
+  "last_checked_at": "2026-11-15T07:41:27+00:00",
+  "last_announced_at": "2026-11-15T04:45:50.000Z",
   "recent_ids": [
+    "RedDeerFavourites2027",
+    "CharantonnayCubeClash2027",
     "FFFontainessurSaone2027",
     "PeaceCountryCubing2027",
     "12SidesChristmasLindon2026",
@@ -501,8 +503,6 @@
     "TaurageOpen2026",
     "SolvinginCedarCityTNB2026",
     "SolvinginCedarCityTNA2026",
-    "FinnishChampionship2026",
-    "3x3x3CubesOnlyinTimog2026",
-    "ThurlesTippTurning2026"
+    "FinnishChampionship2026"
   ]
 }
