@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-17T19:41:51+00:00",
-  "last_announced_at": "2026-11-17T16:46:35.000Z",
+  "last_checked_at": "2026-11-18T02:15:39+00:00",
+  "last_announced_at": "2026-11-18T01:34:00.000Z",
   "recent_ids": [
+    "ItsChristmasTimeLima2026",
+    "EtnaOpen2026",
+    "Goodbye2PadGurugram2026",
+    "UCOHolidayWeeknight2026",
+    "BrockportBlitz2027",
     "MongolianJuniorsCup2026",
     "GoetheInstitutLimaOpen2027",
     "ANewYearinPune2027",
@@ -498,11 +503,6 @@
     "RheinSiegOpen2027",
     "MoveitMidland2026",
     "AgouraHillsFall2026",
-    "KCKC10CubingforCake2026",
-    "UK20thAnniversary2026",
-    "NuntorpOpen2026",
-    "TokyoFTO2027",
-    "PucelaOpen2026",
-    "Uppsalaligan3Pen2026"
+    "KCKC10CubingforCake2026"
   ]
 }
