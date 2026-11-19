@@ -1,9 +1,17 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-18T19:17:33+00:00",
-  "last_announced_at": "2026-11-18T12:32:11.000Z",
+  "last_checked_at": "2026-11-19T01:22:58+00:00",
+  "last_announced_at": "2026-11-19T00:59:38.000Z",
   "recent_ids": [
+    "DSFGeneralforsamlingen2027",
+    "DontDNFTODavis2027",
+    "VilladeCatralReOpen2027",
+    "TaiwanChampionship2026",
+    "PISKGPremiereCubing2027",
+    "AnchorageClockClash2027",
+    "BurbankFall2026",
+    "BangaloreWinterCubeOpen2026",
     "TwistsandTurnsBloomsburg2027",
     "ItsChristmasTimeLima2026",
     "EtnaOpen2026",
@@ -495,14 +503,6 @@
     "UtahMarathonChampionship2026",
     "BasauriOpen2026",
     "UrnietaMentalBreakdown2026",
-    "UtahSprintChampionship2026",
-    "UtahQuietChampionship2026",
-    "RowlandHeightsFallB2026",
-    "RowlandHeightsFallA2026",
-    "MacedoniaOpen2026",
-    "KansaiParityParty2026",
-    "RheinSiegOpen2027",
-    "MoveitMidland2026",
-    "AgouraHillsFall2026"
+    "UtahSprintChampionship2026"
   ]
 }
