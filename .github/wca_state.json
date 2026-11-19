@@ -1,9 +1,12 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-19T01:22:58+00:00",
-  "last_announced_at": "2026-11-19T00:59:38.000Z",
+  "last_checked_at": "2026-11-19T09:17:49+00:00",
+  "last_announced_at": "2026-11-19T06:22:39.000Z",
   "recent_ids": [
+    "FixtheOrientationIsrael2027",
+    "FTOMexicoGuadalajara2027",
+    "CaseyCubeClash2027",
     "DSFGeneralforsamlingen2027",
     "DontDNFTODavis2027",
     "VilladeCatralReOpen2027",
@@ -500,9 +503,6 @@
     "Cube4funinSieradz2026",
     "NorthTasmaniaSpring2026",
     "IntercolegiadoSantander2026",
-    "UtahMarathonChampionship2026",
-    "BasauriOpen2026",
-    "UrnietaMentalBreakdown2026",
-    "UtahSprintChampionship2026"
+    "UtahMarathonChampionship2026"
   ]
 }
