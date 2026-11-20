@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-20T01:06:48+00:00",
-  "last_announced_at": "2026-11-20T00:01:10.000Z",
+  "last_checked_at": "2026-11-20T08:59:43+00:00",
+  "last_announced_at": "2026-11-20T02:52:07.000Z",
   "recent_ids": [
+    "HappyCubeYearPucallpa2027",
     "Wuppertal2027",
     "MunichOpen2027",
     "SlowNSteadyUMDSpring2027",
@@ -502,7 +503,6 @@
     "CosmoCubeFestMedellin2026",
     "VinaCubingFestVISCZ2026",
     "SaranacLake2026",
-    "TupperLake2026",
-    "GranTuriaOpen2026"
+    "TupperLake2026"
   ]
 }
