@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-22T16:59:15+00:00",
-  "last_announced_at": "2026-11-22T16:30:03.000Z",
+  "last_checked_at": "2026-11-22T22:24:27+00:00",
+  "last_announced_at": "2026-11-22T22:19:14.000Z",
   "recent_ids": [
+    "IstresOpen2027",
+    "SideQuestatAVM2026",
+    "RaipurWinterCubeOpen2026",
+    "RubisianWinterCubingIasi2027",
     "PickeringWinter2027",
     "UlmgedrehtIII2027",
     "TassieSummer2027",
@@ -499,10 +503,6 @@
     "RedCrossPizzatober2026",
     "ToledoBigBlindFall2026",
     "UOFall2026",
-    "IdahoChampionship2026",
-    "BackinErmelo2026",
-    "IlliniCubingWeeknightsI2026",
-    "RadioSantaCruzQuiet2026",
-    "IsladeMaipoOpen2026"
+    "IdahoChampionship2026"
   ]
 }
