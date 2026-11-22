@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-22T01:09:32+00:00",
-  "last_announced_at": "2026-11-21T22:31:50.000Z",
+  "last_checked_at": "2026-11-22T08:39:44+00:00",
+  "last_announced_at": "2026-11-22T03:04:40.000Z",
   "recent_ids": [
+    "CuboManiaNxNMFSIIBello2026",
+    "NoVAWinterBreak2026",
+    "DobbsFerryFirstTurns2027",
+    "LarchmontLastTurns2026",
+    "GermanOpen2027",
     "PlatonicPuzzlingColorado2027",
     "CantonCountdown2026",
     "MichoacuboFTO2027",
@@ -498,11 +503,6 @@
     "FirstTurnsofFTODenmark2027",
     "SpookySolvingWilson2026",
     "IcelandOpen2026",
-    "SNLBIFBAFSA2026",
-    "Cube4funinLublin2026",
-    "EdmontonWinter2027",
-    "BarakaldoMiniopenABK2026",
-    "SingaporeNoMidNxNNov2026",
-    "FearsomeFEventsatCMU2026"
+    "SNLBIFBAFSA2026"
   ]
 }
