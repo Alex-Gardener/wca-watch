@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-21T15:11:21+00:00",
-  "last_announced_at": "2026-11-21T11:11:50.000Z",
+  "last_checked_at": "2026-11-22T01:09:32+00:00",
+  "last_announced_at": "2026-11-21T22:31:50.000Z",
   "recent_ids": [
+    "PlatonicPuzzlingColorado2027",
+    "CantonCountdown2026",
     "MichoacuboFTO2027",
     "ToledoBigBlind2027",
     "DeNxNver2027",
@@ -501,8 +503,6 @@
     "EdmontonWinter2027",
     "BarakaldoMiniopenABK2026",
     "SingaporeNoMidNxNNov2026",
-    "FearsomeFEventsatCMU2026",
-    "NewYorkChampionship2026",
-    "ColombianNationalsFMC2026"
+    "FearsomeFEventsatCMU2026"
   ]
 }
