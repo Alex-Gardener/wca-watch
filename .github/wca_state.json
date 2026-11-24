@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-24T10:18:46+00:00",
-  "last_announced_at": "2026-11-24T02:36:12.000Z",
+  "last_checked_at": "2026-11-24T20:47:32+00:00",
+  "last_announced_at": "2026-11-24T20:12:42.000Z",
   "recent_ids": [
+    "LaRiojaOpen2027",
+    "SantoDomingoWinter2027",
+    "TramshedsXIIFebruarySun2027",
+    "TramshedsXIIFebruarySat2027",
+    "LaCarlotaSpeedcubingOpen2026",
     "WelcomeFTOSCZ2027",
     "RiyadhOpen2026",
     "KansaiNewYearFTO2027",
@@ -498,11 +503,6 @@
     "BerkeleyOctoberWeekday2026",
     "BiginBruges2026",
     "QuietBelgianNationals2026",
-    "TorontoWeeknightsII2026",
-    "BacoorOLLStarsCup2026",
-    "ParaguayNationals2026",
-    "ZiboOpen2026",
-    "UBCFall2026",
-    "ColombianNationalsPaipa2026"
+    "TorontoWeeknightsII2026"
   ]
 }
