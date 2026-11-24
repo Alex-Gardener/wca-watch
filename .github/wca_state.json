@@ -1,9 +1,13 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-23T02:59:53+00:00",
-  "last_announced_at": "2026-11-22T22:42:47.000Z",
+  "last_checked_at": "2026-11-24T00:14:56+00:00",
+  "last_announced_at": "2026-11-23T22:24:53.000Z",
   "recent_ids": [
+    "RiyadhOpen2026",
+    "KansaiNewYearFTO2027",
+    "AlexandriaBigAndBlind2026",
+    "ZagrebCubingSeriesI2027",
     "NewYearNewCubeNewbridge2027",
     "QuadCitiesSaturday2027",
     "IstresOpen2027",
@@ -499,10 +503,6 @@
     "ZiboOpen2026",
     "UBCFall2026",
     "ColombianNationalsPaipa2026",
-    "HypercubeQueretaro2026",
-    "PenangCubeOpen2026",
-    "DualFMCBeijing2026",
-    "RedCrossPizzatober2026",
-    "ToledoBigBlindFall2026"
+    "HypercubeQueretaro2026"
   ]
 }
