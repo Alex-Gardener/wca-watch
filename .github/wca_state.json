@@ -1,9 +1,14 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-25T04:01:33+00:00",
-  "last_announced_at": "2026-11-24T23:31:46.000Z",
+  "last_checked_at": "2026-11-25T14:49:48+00:00",
+  "last_announced_at": "2026-11-25T07:00:21.000Z",
   "recent_ids": [
+    "VERKXXV2026",
+    "FTOKorea2027",
+    "FirstTryOtun2027",
+    "AstanaCubingRush2026",
+    "DontDNFAlooDavis2027",
     "UrteBerriFTOn2027",
     "ChanteloupBigsOpen2027",
     "ChanteloupSidesOpen2027",
@@ -498,11 +503,6 @@
     "MongolianChampionship2026",
     "BormujosOpen2026",
     "BerkeleyNovemberWeekday2026",
-    "PinklaoCubingMaster2026",
-    "DobbsFerryDoubleDouble2026",
-    "BerkeleyDecemberWeekday2026",
-    "CFLKoluszki2026",
-    "MinnesotaCubeMelt2027",
-    "SaintMikesOpen2026"
+    "PinklaoCubingMaster2026"
   ]
 }
