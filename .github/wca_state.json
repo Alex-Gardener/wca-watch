@@ -1,9 +1,21 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-25T14:49:48+00:00",
-  "last_announced_at": "2026-11-25T07:00:21.000Z",
+  "last_checked_at": "2026-11-25T23:30:35+00:00",
+  "last_announced_at": "2026-11-25T22:05:21.000Z",
   "recent_ids": [
+    "DublinWinterSolving2027",
+    "CantonNewYear2027",
+    "GlasgowSpring2027",
+    "HoustonWeHaveaNewEvent2027",
+    "CrepeOctaramelBeutresale2027",
+    "CrepeauSkewbdeBeutre2027",
+    "ViviraWinterCubeOpen2026",
+    "AvenidaChileXL2027",
+    "FTOOpenBogota2027",
+    "ChapineriaOpen2027",
+    "10YearsinNegros2026",
+    "TheHeartofTexasWinter2027",
     "VERKXXV2026",
     "FTOKorea2027",
     "FirstTryOtun2027",
@@ -491,18 +503,6 @@
     "TheLastSolveOruro2026",
     "TwinCities2x2Takeover2027",
     "TeslaviOpenSucre2026",
-    "UIUCFall2026",
-    "ValerengaHost2026",
-    "ComicfestManizalesI2026",
-    "CubingATMOSphere2026",
-    "MedvodeOpen2026",
-    "SilencioenQumarkaj2026",
-    "OpoleCubingDay2026",
-    "AstanaSkewbing2026",
-    "NewAgeTurkey2026",
-    "MongolianChampionship2026",
-    "BormujosOpen2026",
-    "BerkeleyNovemberWeekday2026",
-    "PinklaoCubingMaster2026"
+    "UIUCFall2026"
   ]
 }
