@@ -1,9 +1,11 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-26T18:15:58+00:00",
-  "last_announced_at": "2026-11-26T17:49:54.000Z",
+  "last_checked_at": "2026-11-27T01:52:39+00:00",
+  "last_announced_at": "2026-11-26T20:14:21.000Z",
   "recent_ids": [
+    "CubeCarnivalDhaka2026",
+    "Goodbye2PadMumbai2026",
     "WuhuNewYear2027",
     "StAndrewsTuriOpen2027",
     "BeijingWinter2027",
@@ -501,8 +503,6 @@
     "CougarsNewYearWV2027",
     "CampulungMoldovenescOpen2026",
     "BrizZonSideOpenV2026",
-    "EnidWinter2027",
-    "NxNDayinBaku2026",
-    "IowaQuietChampionship2026"
+    "EnidWinter2027"
   ]
 }
