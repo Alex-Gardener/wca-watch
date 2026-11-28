@@ -1,9 +1,10 @@
 {
   "version": 2,
   "initialized_at": "2026-07-29T07:37:36+00:00",
-  "last_checked_at": "2026-11-27T19:50:59+00:00",
-  "last_announced_at": "2026-11-27T19:31:32.000Z",
+  "last_checked_at": "2026-11-28T02:32:59+00:00",
+  "last_announced_at": "2026-11-27T21:42:18.000Z",
   "recent_ids": [
+    "SolvinginSale2027",
     "BienvenidoFTOenAtalaya2027",
     "FMCSicily2026",
     "QuanzhouDoubleFMC2027",
@@ -502,7 +503,6 @@
     "HobartSpringCubing2026",
     "JiangmenOpen2026",
     "ZhongshanCityOpen2026",
-    "NingboOpen2026",
-    "Square1SidesinSurrey2026"
+    "NingboOpen2026"
   ]
 }
